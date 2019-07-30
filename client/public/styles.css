@@ -1,0 +1,23 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#main {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+}
+
+tr, td {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
