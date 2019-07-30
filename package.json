@@ -1,0 +1,25 @@
+{
+  "name": "neo-bank-app",
+  "version": "1.0.0",
+  "description": "A simple neo bank client in React/Redux built on top of the Synapse API",
+  "main": "server",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umairnadeem123/neo-bank-app.git"
+  },
+  "keywords": [
+    "neo",
+    "bank",
+    "app",
+    "api"
+  ],
+  "author": "Umair Nadeem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umairnadeem123/neo-bank-app/issues"
+  },
+  "homepage": "https://github.com/umairnadeem123/neo-bank-app#readme"
+}
