@@ -30,10 +30,10 @@ module.exports = {
       ],
     };
 
+    // Create user
     axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
-        const { _id, refresh_token } = data;
-        payload = { _id, refresh_token };
+        payload = { id: data._id, token: data.refresh_token };
       })
       .catch(err => res.status(400).send(err));
   },

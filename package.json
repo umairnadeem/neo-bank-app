@@ -31,7 +31,10 @@
     "jquery": "^3.4.1",
     "path": "^0.12.7",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -45,7 +48,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.8.0",
-    "redux": "^4.0.4",
     "webpack": "^2.2.1",
     "webpack-cli": "^3.3.2"
   }
