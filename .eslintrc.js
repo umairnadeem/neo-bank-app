@@ -21,5 +21,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/export': 0,
+    'import/prefer-default-export': 0
   },
 };

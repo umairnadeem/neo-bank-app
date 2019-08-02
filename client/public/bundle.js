@@ -350,21 +350,10 @@ eval("/* WEBPACK VAR INJECTION */(function(process) {\n\nif (process.env.NODE_EN
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 1);\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar App = function App() {\n  return _react2.default.createElement(\n    \"div\",\n    { className: \"container\" },\n    \"Hello world!\"\n  );\n};\n\nexports.default = App;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9jb21wb25lbnRzL0FwcC5qc3g/YThiMSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5jb25zdCBBcHAgPSAoKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgSGVsbG8gd29ybGQhXG4gIDwvZGl2PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgQXBwO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvY29tcG9uZW50cy9BcHAuanN4Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBOzs7OztBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQUE7QUFBQTtBQURBO0FBQ0E7QUFLQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///23\n");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 1);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ 35);\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ 25);\n\nvar _actions = __webpack_require__(/*! ../_actions */ 67);\n\nvar _LoginPage = __webpack_require__(/*! ./LoginPage */ 69);\n\nvar _LoginPage2 = _interopRequireDefault(_LoginPage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// import Sidebar from './Sidebar';\n// import Main from './Main';\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    authentication: state.authentication\n  };\n};\n\nvar actionCreators = function actionCreators() {\n  return {\n    userActions: _actions.userActions\n  };\n};\n\nvar App = function App(_ref) {\n  var authentication = _ref.authentication;\n  return _react2.default.createElement(\n    'div',\n    { className: 'container' },\n    authentication.isLoggedIn ? null : _react2.default.createElement(_LoginPage2.default, null)\n  );\n};\n\nApp.propTypes = {\n  authentication: _propTypes2.default.objectOf(_propTypes2.default.any).isRequired\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, actionCreators)(App);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9jb21wb25lbnRzL0FwcC5qc3g/YThiMSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XG5pbXBvcnQgeyB1c2VyQWN0aW9ucyB9IGZyb20gJy4uL19hY3Rpb25zJztcbmltcG9ydCBMb2dpblBhZ2UgZnJvbSAnLi9Mb2dpblBhZ2UnO1xuLy8gaW1wb3J0IFNpZGViYXIgZnJvbSAnLi9TaWRlYmFyJztcbi8vIGltcG9ydCBNYWluIGZyb20gJy4vTWFpbic7XG5cbmNvbnN0IG1hcFN0YXRlVG9Qcm9wcyA9IHN0YXRlID0+ICh7XG4gIGF1dGhlbnRpY2F0aW9uOiBzdGF0ZS5hdXRoZW50aWNhdGlvbixcbn0pO1xuXG5jb25zdCBhY3Rpb25DcmVhdG9ycyA9ICgpID0+ICh7XG4gIHVzZXJBY3Rpb25zLFxufSk7XG5cbmNvbnN0IEFwcCA9ICh7IGF1dGhlbnRpY2F0aW9uIH0pID0+IChcbiAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cbiAgICB7YXV0aGVudGljYXRpb24uaXNMb2dnZWRJblxuICAgICAgPyBudWxsXG4gICAgICA6IDxMb2dpblBhZ2UgLz59XG4gICAgey8qIDxTaWRlYmFyIC8+XG4gICAgPE1haW4gLz4gKi99XG4gIDwvZGl2PlxuKTtcblxuQXBwLnByb3BUeXBlcyA9IHtcbiAgYXV0aGVudGljYXRpb246IFByb3BUeXBlcy5vYmplY3RPZihQcm9wVHlwZXMuYW55KS5pc1JlcXVpcmVkLFxufTtcblxuZXhwb3J0IGRlZmF1bHQgY29ubmVjdChtYXBTdGF0ZVRvUHJvcHMsIGFjdGlvbkNyZWF0b3JzKShBcHApO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvY29tcG9uZW50cy9BcHAuanN4Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBOzs7QUFBQTtBQUNBOzs7QUFBQTtBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUNBO0FBREE7QUFBQTtBQUNBO0FBR0E7QUFBQTtBQUNBO0FBREE7QUFBQTtBQUNBO0FBR0E7QUFBQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBREE7QUFEQTtBQUNBO0FBU0E7QUFDQTtBQURBO0FBQ0E7QUFHQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///23\n");
 
 /***/ }),
-/* 24 */
-/* no static exports found */
-/* all exports used */
-/*!***********************************!*\
-  !*** ./client/src/store/index.js ***!
-  \***********************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ 11);\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ 53);\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _reducers = __webpack_require__(/*! ../reducers */ 30);\n\nvar _reducers2 = _interopRequireDefault(_reducers);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initialState = {};\n\nvar middleware = [_reduxThunk2.default];\n\nvar store = (0, _redux.createStore)(_reducers2.default, initialState, _redux.applyMiddleware.apply(undefined, middleware));\n\nexports.default = store;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjQuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9zdG9yZS9pbmRleC5qcz8wM2IwIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNyZWF0ZVN0b3JlLCBhcHBseU1pZGRsZXdhcmUgfSBmcm9tICdyZWR1eCc7XG5pbXBvcnQgdGh1bmsgZnJvbSAncmVkdXgtdGh1bmsnO1xuaW1wb3J0IHJvb3RSZWR1Y2VyIGZyb20gJy4uL3JlZHVjZXJzJztcblxuY29uc3QgaW5pdGlhbFN0YXRlID0ge307XG5cbmNvbnN0IG1pZGRsZXdhcmUgPSBbdGh1bmtdO1xuXG5jb25zdCBzdG9yZSA9IGNyZWF0ZVN0b3JlKFxuICByb290UmVkdWNlcixcbiAgaW5pdGlhbFN0YXRlLFxuICBhcHBseU1pZGRsZXdhcmUoLi4ubWlkZGxld2FyZSksXG4pO1xuXG5leHBvcnQgZGVmYXVsdCBzdG9yZTtcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBjbGllbnQvc3JjL3N0b3JlL2luZGV4LmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBO0FBQUE7QUFDQTs7O0FBQUE7QUFDQTs7Ozs7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///24\n");
-
-/***/ }),
+/* 24 */,
 /* 25 */
 /* exports provided: Provider, connectAdvanced, ReactReduxContext, connect, batch, useDispatch, useSelector, useStore, shallowEqual */
 /* all exports used */
@@ -401,18 +390,7 @@ eval("/* harmony export (immutable) */ __webpack_exports__[\"a\"] = _assertThisI
 eval("/* harmony export (immutable) */ __webpack_exports__[\"a\"] = _inheritsLoose;\nfunction _inheritsLoose(subClass, superClass) {\n  subClass.prototype = Object.create(superClass.prototype);\n  subClass.prototype.constructor = subClass;\n  subClass.__proto__ = superClass;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjcuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9+L0BiYWJlbC9ydW50aW1lL2hlbHBlcnMvZXNtL2luaGVyaXRzTG9vc2UuanM/MWM1ZiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBfaW5oZXJpdHNMb29zZShzdWJDbGFzcywgc3VwZXJDbGFzcykge1xuICBzdWJDbGFzcy5wcm90b3R5cGUgPSBPYmplY3QuY3JlYXRlKHN1cGVyQ2xhc3MucHJvdG90eXBlKTtcbiAgc3ViQ2xhc3MucHJvdG90eXBlLmNvbnN0cnVjdG9yID0gc3ViQ2xhc3M7XG4gIHN1YkNsYXNzLl9fcHJvdG9fXyA9IHN1cGVyQ2xhc3M7XG59XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9+L0BiYWJlbC9ydW50aW1lL2hlbHBlcnMvZXNtL2luaGVyaXRzTG9vc2UuanNcbi8vIG1vZHVsZSBpZCA9IDI3XG4vLyBtb2R1bGUgY2h1bmtzID0gMCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///27\n");
 
 /***/ }),
-/* 28 */
-/* no static exports found */
-/* all exports used */
-/*!*************************************!*\
-  !*** ./client/src/actions/types.js ***!
-  \*************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar TEST_TYPE = 'Test';\n\nexports.default = TEST_TYPE;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjguanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9hY3Rpb25zL3R5cGVzLmpzP2I0YTMiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgVEVTVF9UWVBFID0gJ1Rlc3QnO1xuXG5leHBvcnQgZGVmYXVsdCBURVNUX1RZUEU7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gY2xpZW50L3NyYy9hY3Rpb25zL3R5cGVzLmpzIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///28\n");
-
-/***/ }),
+/* 28 */,
 /* 29 */
 /* no static exports found */
 /* all exports used */
@@ -422,33 +400,11 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ 1);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ 13);\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _App = __webpack_require__(/*! ./components/App */ 23);\n\nvar _App2 = _interopRequireDefault(_App);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ 25);\n\nvar _store = __webpack_require__(/*! ./store */ 24);\n\nvar _store2 = _interopRequireDefault(_store);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(\n\t_reactRedux.Provider,\n\t{ store: _store2.default },\n\t_react2.default.createElement(_App2.default, null)\n), document.getElementById('main'));//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjkuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9pbmRleC5qc3g/ZjUxNSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFJlYWN0RE9NIGZyb20gJ3JlYWN0LWRvbSc7XG5pbXBvcnQgQXBwIGZyb20gJy4vY29tcG9uZW50cy9BcHAnO1xuaW1wb3J0IHsgUHJvdmlkZXIgfSBmcm9tICdyZWFjdC1yZWR1eCc7XG5pbXBvcnQgc3RvcmUgZnJvbSAnLi9zdG9yZSc7XG5cblxuUmVhY3RET00ucmVuZGVyKFxuXHQ8UHJvdmlkZXIgc3RvcmU9e3N0b3JlfT5cblx0XHQ8QXBwIC8+XG5cdDwvUHJvdmlkZXI+LFxuXHRkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbWFpbicpXG4pO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvaW5kZXguanN4Il0sIm1hcHBpbmdzIjoiOztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7QUFBQTtBQUNBOzs7OztBQUVBO0FBQ0E7QUFBQTtBQUNBO0FBREEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///29\n");
+eval("\n\nvar _react = __webpack_require__(/*! react */ 1);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ 13);\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ 25);\n\nvar _App = __webpack_require__(/*! ./components/App */ 23);\n\nvar _App2 = _interopRequireDefault(_App);\n\nvar _store = __webpack_require__(/*! ./_store */ 62);\n\nvar _store2 = _interopRequireDefault(_store);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(\n  _reactRedux.Provider,\n  { store: _store2.default },\n  _react2.default.createElement(_App2.default, null)\n), document.getElementById('main'));//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjkuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9pbmRleC5qc3g/ZjUxNSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFJlYWN0RE9NIGZyb20gJ3JlYWN0LWRvbSc7XG5pbXBvcnQgeyBQcm92aWRlciB9IGZyb20gJ3JlYWN0LXJlZHV4JztcbmltcG9ydCBBcHAgZnJvbSAnLi9jb21wb25lbnRzL0FwcCc7XG5pbXBvcnQgc3RvcmUgZnJvbSAnLi9fc3RvcmUnO1xuXG5cblJlYWN0RE9NLnJlbmRlcihcbiAgPFByb3ZpZGVyIHN0b3JlPXtzdG9yZX0+XG4gICAgPEFwcCAvPlxuICA8L1Byb3ZpZGVyPixcbiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSxcbik7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gY2xpZW50L3NyYy9pbmRleC5qc3giXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTs7O0FBQUE7QUFDQTs7O0FBQUE7QUFDQTtBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7Ozs7O0FBRUE7QUFDQTtBQUFBO0FBQ0E7QUFEQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///29\n");
 
 /***/ }),
-/* 30 */
-/* no static exports found */
-/* all exports used */
-/*!**************************************!*\
-  !*** ./client/src/reducers/index.js ***!
-  \**************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ 11);\n\nvar _loginReducer = __webpack_require__(/*! ./loginReducer */ 31);\n\nvar _loginReducer2 = _interopRequireDefault(_loginReducer);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar rootReducer = (0, _redux.combineReducers)({ login: _loginReducer2.default });\n\nexports.default = rootReducer;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzAuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9yZWR1Y2Vycy9pbmRleC5qcz9jOTRjIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbWJpbmVSZWR1Y2VycyB9IGZyb20gJ3JlZHV4JztcbmltcG9ydCBsb2dpbiBmcm9tICcuL2xvZ2luUmVkdWNlcic7XG5cbmNvbnN0IHJvb3RSZWR1Y2VyID0gY29tYmluZVJlZHVjZXJzKHsgbG9naW4gfSk7XG5cbmV4cG9ydCBkZWZhdWx0IHJvb3RSZWR1Y2VyO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvcmVkdWNlcnMvaW5kZXguanMiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBQ0E7QUFBQTtBQUNBOzs7OztBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///30\n");
-
-/***/ }),
-/* 31 */
-/* no static exports found */
-/* all exports used */
-/*!*********************************************!*\
-  !*** ./client/src/reducers/loginReducer.js ***!
-  \*********************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments[1];\n\n  switch (action.type) {\n    case _types2.default:\n      return action.payload || null;\n    default:\n      return state;\n  }\n};\n\nvar _types = __webpack_require__(/*! ../actions/types */ 28);\n\nvar _types2 = _interopRequireDefault(_types);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initialState = {};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzEuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9yZWR1Y2Vycy9sb2dpblJlZHVjZXIuanM/YTcxMCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgVEVTVF9UWVBFIGZyb20gJy4uL2FjdGlvbnMvdHlwZXMnO1xuXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7fTtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gKHN0YXRlID0gaW5pdGlhbFN0YXRlLCBhY3Rpb24pIHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgVEVTVF9UWVBFOlxuICAgICAgcmV0dXJuIGFjdGlvbi5wYXlsb2FkIHx8IG51bGw7XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZTtcbiAgfVxufVxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvcmVkdWNlcnMvbG9naW5SZWR1Y2VyLmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFJQTtBQUFBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFKQTtBQU1BO0FBQ0E7QUFaQTtBQUNBOzs7OztBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///31\n");
-
-/***/ }),
+/* 30 */,
+/* 31 */,
 /* 32 */
 /* no static exports found */
 /* exports used: default */
@@ -487,7 +443,7 @@ eval("/* WEBPACK VAR INJECTION */(function(process) {/**\n * Copyright (c) 2013-
 /***/ }),
 /* 35 */
 /* no static exports found */
-/* exports used: default */
+/* all exports used */
 /*!*******************************!*\
   !*** ./~/prop-types/index.js ***!
   \*******************************/
@@ -805,6 +761,102 @@ eval("/* harmony export (immutable) */ __webpack_exports__[\"a\"] = symbolObserv
 /***/ (function(module, exports) {
 
 eval("module.exports = function(originalModule) {\r\n\tif(!originalModule.webpackPolyfill) {\r\n\t\tvar module = Object.create(originalModule);\r\n\t\t// module.parent = undefined by default\r\n\t\tif(!module.children) module.children = [];\r\n\t\tObject.defineProperty(module, \"loaded\", {\r\n\t\t\tenumerable: true,\r\n\t\t\tget: function() {\r\n\t\t\t\treturn module.l;\r\n\t\t\t}\r\n\t\t});\r\n\t\tObject.defineProperty(module, \"id\", {\r\n\t\t\tenumerable: true,\r\n\t\t\tget: function() {\r\n\t\t\t\treturn module.i;\r\n\t\t\t}\r\n\t\t});\r\n\t\tObject.defineProperty(module, \"exports\", {\r\n\t\t\tenumerable: true,\r\n\t\t});\r\n\t\tmodule.webpackPolyfill = 1;\r\n\t}\r\n\treturn module;\r\n};\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjEuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vKHdlYnBhY2spL2J1aWxkaW4vaGFybW9ueS1tb2R1bGUuanM/Y2M5NiJdLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uKG9yaWdpbmFsTW9kdWxlKSB7XHJcblx0aWYoIW9yaWdpbmFsTW9kdWxlLndlYnBhY2tQb2x5ZmlsbCkge1xyXG5cdFx0dmFyIG1vZHVsZSA9IE9iamVjdC5jcmVhdGUob3JpZ2luYWxNb2R1bGUpO1xyXG5cdFx0Ly8gbW9kdWxlLnBhcmVudCA9IHVuZGVmaW5lZCBieSBkZWZhdWx0XHJcblx0XHRpZighbW9kdWxlLmNoaWxkcmVuKSBtb2R1bGUuY2hpbGRyZW4gPSBbXTtcclxuXHRcdE9iamVjdC5kZWZpbmVQcm9wZXJ0eShtb2R1bGUsIFwibG9hZGVkXCIsIHtcclxuXHRcdFx0ZW51bWVyYWJsZTogdHJ1ZSxcclxuXHRcdFx0Z2V0OiBmdW5jdGlvbigpIHtcclxuXHRcdFx0XHRyZXR1cm4gbW9kdWxlLmw7XHJcblx0XHRcdH1cclxuXHRcdH0pO1xyXG5cdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KG1vZHVsZSwgXCJpZFwiLCB7XHJcblx0XHRcdGVudW1lcmFibGU6IHRydWUsXHJcblx0XHRcdGdldDogZnVuY3Rpb24oKSB7XHJcblx0XHRcdFx0cmV0dXJuIG1vZHVsZS5pO1xyXG5cdFx0XHR9XHJcblx0XHR9KTtcclxuXHRcdE9iamVjdC5kZWZpbmVQcm9wZXJ0eShtb2R1bGUsIFwiZXhwb3J0c1wiLCB7XHJcblx0XHRcdGVudW1lcmFibGU6IHRydWUsXHJcblx0XHR9KTtcclxuXHRcdG1vZHVsZS53ZWJwYWNrUG9seWZpbGwgPSAxO1xyXG5cdH1cclxuXHRyZXR1cm4gbW9kdWxlO1xyXG59O1xyXG5cblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAod2VicGFjaykvYnVpbGRpbi9oYXJtb255LW1vZHVsZS5qc1xuLy8gbW9kdWxlIGlkID0gNjFcbi8vIG1vZHVsZSBjaHVua3MgPSAwIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///61\n");
+
+/***/ }),
+/* 62 */
+/* no static exports found */
+/* all exports used */
+/*!************************************!*\
+  !*** ./client/src/_store/index.js ***!
+  \************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ 11);\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ 53);\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _reducers = __webpack_require__(/*! ../_reducers */ 65);\n\nvar _reducers2 = _interopRequireDefault(_reducers);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initialState = {};\n\nvar middleware = [_reduxThunk2.default];\n\nvar store = (0, _redux.createStore)(_reducers2.default, initialState, _redux.applyMiddleware.apply(undefined, middleware));\n\nexports.default = store;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjIuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fc3RvcmUvaW5kZXguanM/ZGJhNiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVTdG9yZSwgYXBwbHlNaWRkbGV3YXJlIH0gZnJvbSAncmVkdXgnO1xuaW1wb3J0IHRodW5rIGZyb20gJ3JlZHV4LXRodW5rJztcbmltcG9ydCByb290UmVkdWNlciBmcm9tICcuLi9fcmVkdWNlcnMnO1xuXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7fTtcblxuY29uc3QgbWlkZGxld2FyZSA9IFt0aHVua107XG5cbmNvbnN0IHN0b3JlID0gY3JlYXRlU3RvcmUoXG4gIHJvb3RSZWR1Y2VyLFxuICBpbml0aWFsU3RhdGUsXG4gIGFwcGx5TWlkZGxld2FyZSguLi5taWRkbGV3YXJlKSxcbik7XG5cbmV4cG9ydCBkZWZhdWx0IHN0b3JlO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvX3N0b3JlL2luZGV4LmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBO0FBQUE7QUFDQTs7O0FBQUE7QUFDQTs7Ozs7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFLQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///62\n");
+
+/***/ }),
+/* 63 */
+/* no static exports found */
+/* all exports used */
+/*!****************************************!*\
+  !*** ./client/src/_constants/index.js ***!
+  \****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _userConstants = __webpack_require__(/*! ./userConstants */ 64);\n\nObject.keys(_userConstants).forEach(function (key) {\n  if (key === \"default\" || key === \"__esModule\") return;\n  Object.defineProperty(exports, key, {\n    enumerable: true,\n    get: function get() {\n      return _userConstants[key];\n    }\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fY29uc3RhbnRzL2luZGV4LmpzPzVkODgiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi91c2VyQ29uc3RhbnRzJztcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBjbGllbnQvc3JjL19jb25zdGFudHMvaW5kZXguanMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///63\n");
+
+/***/ }),
+/* 64 */
+/* no static exports found */
+/* all exports used */
+/*!************************************************!*\
+  !*** ./client/src/_constants/userConstants.js ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar userConstants = exports.userConstants = {\n  LOGIN: 'USERS_LOGIN',\n  LOGOUT: 'USERS_LOGOUT'\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjQuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fY29uc3RhbnRzL3VzZXJDb25zdGFudHMuanM/MDM1YiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgdXNlckNvbnN0YW50cyA9IHtcbiAgTE9HSU46ICdVU0VSU19MT0dJTicsXG4gIExPR09VVDogJ1VTRVJTX0xPR09VVCcsXG59O1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvX2NvbnN0YW50cy91c2VyQ29uc3RhbnRzLmpzIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBQ0E7QUFDQTtBQUZBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///64\n");
+
+/***/ }),
+/* 65 */
+/* no static exports found */
+/* all exports used */
+/*!***************************************!*\
+  !*** ./client/src/_reducers/index.js ***!
+  \***************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ 11);\n\nvar _userReducers = __webpack_require__(/*! ./userReducers */ 66);\n\nvar _userReducers2 = _interopRequireDefault(_userReducers);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar rootReducer = (0, _redux.combineReducers)({\n  authentication: _userReducers2.default\n});\n\nexports.default = rootReducer;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjUuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fcmVkdWNlcnMvaW5kZXguanM/MWY0ZSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjb21iaW5lUmVkdWNlcnMgfSBmcm9tICdyZWR1eCc7XG5pbXBvcnQgYXV0aGVudGljYXRpb24gZnJvbSAnLi91c2VyUmVkdWNlcnMnO1xuXG5jb25zdCByb290UmVkdWNlciA9IGNvbWJpbmVSZWR1Y2Vycyh7XG4gIGF1dGhlbnRpY2F0aW9uLFxufSk7XG5cbmV4cG9ydCBkZWZhdWx0IHJvb3RSZWR1Y2VyO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvX3JlZHVjZXJzL2luZGV4LmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBO0FBQUE7QUFDQTs7Ozs7QUFDQTtBQUNBO0FBREE7QUFDQTtBQUdBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///65\n");
+
+/***/ }),
+/* 66 */
+/* no static exports found */
+/* all exports used */
+/*!**********************************************!*\
+  !*** ./client/src/_reducers/userReducers.js ***!
+  \**********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments[1];\n\n  switch (action.type) {\n    case _constants.userConstants.LOGIN:\n      return {\n        isLoggedIn: true\n      };\n    case _constants.userConstants.LOGOUT:\n      return {\n        isLoggedIn: false\n      };\n    default:\n      return state;\n  }\n};\n\nvar _constants = __webpack_require__(/*! ../_constants */ 63);\n\nvar initialState = {\n  isLoggedIn: false\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjYuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fcmVkdWNlcnMvdXNlclJlZHVjZXJzLmpzPzhiYzEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlckNvbnN0YW50cyB9IGZyb20gJy4uL19jb25zdGFudHMnO1xuXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7XG4gIGlzTG9nZ2VkSW46IGZhbHNlLFxufTtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gKHN0YXRlID0gaW5pdGlhbFN0YXRlLCBhY3Rpb24pIHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgdXNlckNvbnN0YW50cy5MT0dJTjpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIGlzTG9nZ2VkSW46IHRydWUsXG4gICAgICB9O1xuICAgIGNhc2UgdXNlckNvbnN0YW50cy5MT0dPVVQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICBpc0xvZ2dlZEluOiBmYWxzZSxcbiAgICAgIH07XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZTtcbiAgfVxufVxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvX3JlZHVjZXJzL3VzZXJSZWR1Y2Vycy5qcyJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBTUE7QUFBQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQURBO0FBR0E7QUFDQTtBQUNBO0FBREE7QUFHQTtBQUNBO0FBVkE7QUFZQTtBQUNBO0FBcEJBO0FBQ0E7QUFDQTtBQUNBO0FBREEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///66\n");
+
+/***/ }),
+/* 67 */
+/* no static exports found */
+/* all exports used */
+/*!**************************************!*\
+  !*** ./client/src/_actions/index.js ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _userActions = __webpack_require__(/*! ./userActions */ 68);\n\nObject.keys(_userActions).forEach(function (key) {\n  if (key === \"default\" || key === \"__esModule\") return;\n  Object.defineProperty(exports, key, {\n    enumerable: true,\n    get: function get() {\n      return _userActions[key];\n    }\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjcuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fYWN0aW9ucy9pbmRleC5qcz8zNzA0Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vdXNlckFjdGlvbnMnO1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIGNsaWVudC9zcmMvX2FjdGlvbnMvaW5kZXguanMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///67\n");
+
+/***/ }),
+/* 68 */
+/* no static exports found */
+/* all exports used */
+/*!********************************************!*\
+  !*** ./client/src/_actions/userActions.js ***!
+  \********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.userActions = undefined;\n\nvar _constants = __webpack_require__(/*! ../_constants */ 63);\n\nvar login = function login(e) {\n  e.preventDefault();\n  return function (dispatch) {\n    dispatch({\n      type: _constants.userConstants.LOGIN,\n      payload: true\n    });\n  };\n};\n\nvar logout = function logout() {\n  return function (dispatch) {\n    dispatch({\n      type: _constants.userConstants.LOGOUT\n    });\n  };\n};\n\nvar userActions = exports.userActions = {\n  login: login,\n  logout: logout\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjguanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9fYWN0aW9ucy91c2VyQWN0aW9ucy5qcz9lN2UwIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZXJDb25zdGFudHMgfSBmcm9tICcuLi9fY29uc3RhbnRzJztcblxuY29uc3QgbG9naW4gPSAoZSkgPT4ge1xuICBlLnByZXZlbnREZWZhdWx0KCk7XG4gIHJldHVybiAoZGlzcGF0Y2gpID0+IHtcbiAgICBkaXNwYXRjaCh7XG4gICAgICB0eXBlOiB1c2VyQ29uc3RhbnRzLkxPR0lOLFxuICAgICAgcGF5bG9hZDogdHJ1ZSxcbiAgICB9KTtcbiAgfTtcbn07XG5cbmNvbnN0IGxvZ291dCA9ICgpID0+IChkaXNwYXRjaCkgPT4ge1xuICBkaXNwYXRjaCh7XG4gICAgdHlwZTogdXNlckNvbnN0YW50cy5MT0dPVVQsXG4gIH0pO1xufTtcblxuZXhwb3J0IGNvbnN0IHVzZXJBY3Rpb25zID0ge1xuICBsb2dpbixcbiAgbG9nb3V0LFxufTtcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBjbGllbnQvc3JjL19hY3Rpb25zL3VzZXJBY3Rpb25zLmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUZBO0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFEQTtBQUdBO0FBSkE7QUFDQTtBQUtBO0FBQ0E7QUFDQTtBQUZBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///68\n");
+
+/***/ }),
+/* 69 */
+/* no static exports found */
+/* all exports used */
+/*!*********************************************!*\
+  !*** ./client/src/components/LoginPage.jsx ***!
+  \*********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 1);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ 35);\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ 25);\n\nvar _actions = __webpack_require__(/*! ../_actions */ 67);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar actions = {\n  login: _actions.userActions.login,\n  logout: _actions.userActions.logout\n};\n\nvar LoginPage = function LoginPage(_ref) {\n  var login = _ref.login;\n  return _react2.default.createElement(\n    'form',\n    null,\n    _react2.default.createElement(\n      'h1',\n      null,\n      'Login'\n    ),\n    _react2.default.createElement(\n      'label',\n      { htmlFor: 'username' },\n      'Username:',\n      _react2.default.createElement('input', { id: 'username', type: 'text' })\n    ),\n    _react2.default.createElement(\n      'label',\n      { htmlFor: 'password' },\n      'Password:',\n      _react2.default.createElement('input', { id: 'password', type: 'text' })\n    ),\n    _react2.default.createElement(\n      'button',\n      { type: 'submit', onClick: login },\n      'Submit'\n    )\n  );\n};\n\nLoginPage.propTypes = {\n  login: _propTypes2.default.func.isRequired\n};\n\nexports.default = (0, _reactRedux.connect)(null, actions)(LoginPage);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNjkuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vY2xpZW50L3NyYy9jb21wb25lbnRzL0xvZ2luUGFnZS5qc3g/YzY0MSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XG5pbXBvcnQgeyB1c2VyQWN0aW9ucyB9IGZyb20gJy4uL19hY3Rpb25zJztcblxuY29uc3QgYWN0aW9ucyA9IHtcbiAgbG9naW46IHVzZXJBY3Rpb25zLmxvZ2luLFxuICBsb2dvdXQ6IHVzZXJBY3Rpb25zLmxvZ291dCxcbn07XG5cbmNvbnN0IExvZ2luUGFnZSA9ICh7IGxvZ2luIH0pID0+IChcbiAgPGZvcm0+XG4gICAgPGgxPkxvZ2luPC9oMT5cbiAgICA8bGFiZWwgaHRtbEZvcj1cInVzZXJuYW1lXCI+XG4gICAgICBVc2VybmFtZTpcbiAgICAgIDxpbnB1dCBpZD1cInVzZXJuYW1lXCIgdHlwZT1cInRleHRcIiAvPlxuICAgIDwvbGFiZWw+XG4gICAgPGxhYmVsIGh0bWxGb3I9XCJwYXNzd29yZFwiPlxuICAgICAgUGFzc3dvcmQ6XG4gICAgICA8aW5wdXQgaWQ9XCJwYXNzd29yZFwiIHR5cGU9XCJ0ZXh0XCIgLz5cbiAgICA8L2xhYmVsPlxuICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiIG9uQ2xpY2s9e2xvZ2lufT5TdWJtaXQ8L2J1dHRvbj5cbiAgPC9mb3JtPlxuKTtcblxuTG9naW5QYWdlLnByb3BUeXBlcyA9IHtcbiAgbG9naW46IFByb3BUeXBlcy5mdW5jLmlzUmVxdWlyZWQsXG59O1xuXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG51bGwsIGFjdGlvbnMpKExvZ2luUGFnZSk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gY2xpZW50L3NyYy9jb21wb25lbnRzL0xvZ2luUGFnZS5qc3giXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7QUFBQTtBQUNBOzs7QUFDQTtBQUNBO0FBQ0E7QUFGQTtBQUNBO0FBSUE7QUFBQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUFBO0FBQUE7QUFBQTtBQUVBO0FBRkE7QUFJQTtBQUFBO0FBQUE7QUFBQTtBQUVBO0FBRkE7QUFJQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBVkE7QUFEQTtBQUNBO0FBY0E7QUFDQTtBQURBO0FBQ0E7QUFHQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///69\n");
 
 /***/ })
 /******/ ]);

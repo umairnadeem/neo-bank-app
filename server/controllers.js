@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 const axios = require('axios');
 
 const url = 'https://uat-api.synapsefi.com/v3.1';
