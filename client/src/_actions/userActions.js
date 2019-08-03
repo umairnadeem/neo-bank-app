@@ -3,12 +3,12 @@ import { userConstants } from '../_constants';
 
 const authenticate = (answer = '') => (dispatch) => {
   userService.authenticate(answer)
-    .then((res) => {
-      if (res === '202') {
+    .then(({ data }) => {
+      if (data === 202) {
         dispatch({
           type: userConstants.AUTH,
         });
-      } else if (res === '200') {
+      } else if (data === 200) {
         dispatch({
           type: userConstants.LOGIN,
         });
@@ -18,12 +18,12 @@ const authenticate = (answer = '') => (dispatch) => {
 
 const login = (username, password) => (dispatch) => {
   userService.login(username, password)
-    .then((res) => {
-      if (res === '202') {
+    .then(({ data }) => {
+      if (data === 202) {
         dispatch({
           type: userConstants.AUTH,
         });
-      } else if (res === '200') {
+      } else if (data === 200) {
         dispatch({
           type: userConstants.LOGIN,
         });

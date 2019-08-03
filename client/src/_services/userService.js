@@ -5,7 +5,7 @@ const login = (username, password) => axios.post('/api/v1/users/create', { usern
   .catch(err => err);
 
 const authenticate = answer => axios.post('/api/v1/users/authenticate', { answer })
-  .then(res => res)
+  .then(res => console.log(res))
   .catch(err => err);
 
 export const userService = {

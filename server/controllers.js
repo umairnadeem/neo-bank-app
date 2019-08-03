@@ -36,7 +36,7 @@ module.exports = {
     };
 
     // Create user
-    return axios.post(`${url}/users`, body, { headers })
+    axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
         const { refresh_token } = data;
         userId = data._id;
@@ -60,9 +60,13 @@ module.exports = {
       })
       .then(({ data }) => {
         access_token = data.mfa;
-        return data.http_code;
+        res.send(data.http_code);
       })
       .catch(({ response }) => res.status(400).send(JSON.stringify(response.data)));
   },
-  authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, headers),
+  authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, headers)
+    .then(({ data }) => {
+      access_token = data.mfa;
+      res.send(data.http_code);
+    }),
 };
