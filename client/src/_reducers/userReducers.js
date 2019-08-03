@@ -17,6 +17,7 @@ export default function (state = initialState, action) {
     case userConstants.FAIL:
       return {
         isFail: true,
+        error: action.error,
       };
     case userConstants.AUTH:
       return {

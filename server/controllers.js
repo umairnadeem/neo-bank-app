@@ -62,7 +62,7 @@ module.exports = {
         access_token = data.mfa;
         res.send(data.http_code);
       })
-      .catch(({ response }) => res.status(400).send(JSON.stringify(response.data)));
+      .catch(({ response }) => res.status(401).send(response.data));
   },
   authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, headers)
     .then(({ data }) => {

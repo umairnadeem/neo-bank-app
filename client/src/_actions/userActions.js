@@ -13,7 +13,11 @@ const authenticate = (answer = '') => (dispatch) => {
           type: userConstants.LOGIN,
         });
       }
-    });
+    })
+    .catch(({ error }) => dispatch({
+      type: userConstants.FAIL,
+      error,
+    }));
 };
 
 const login = (username, password) => (dispatch) => {
@@ -29,9 +33,13 @@ const login = (username, password) => (dispatch) => {
         });
       }
     })
-    .catch(() => dispatch({
-      type: userConstants.FAIL,
-    }));
+    .catch(({ response }) => {
+      const { error } = response.data;
+      dispatch({
+        type: userConstants.FAIL,
+        error,
+      });
+    });
 };
 
 const logout = () => (dispatch) => {
