@@ -1,6 +1,21 @@
 import { userService } from '../_services';
 import { userConstants } from '../_constants';
 
+const authenticate = (answer = '') => (dispatch) => {
+  userService.authenticate(answer)
+    .then((res) => {
+      if (res === '202') {
+        dispatch({
+          type: userConstants.AUTH,
+        });
+      } else if (res === '200') {
+        dispatch({
+          type: userConstants.LOGIN,
+        });
+      }
+    });
+};
+
 const login = (username, password) => (dispatch) => {
   userService.login(username, password)
     .then((res) => {
@@ -8,7 +23,7 @@ const login = (username, password) => (dispatch) => {
         dispatch({
           type: userConstants.AUTH,
         });
-      } else {
+      } else if (res === '200') {
         dispatch({
           type: userConstants.LOGIN,
         });
@@ -17,21 +32,6 @@ const login = (username, password) => (dispatch) => {
     .catch(() => dispatch({
       type: userConstants.FAIL,
     }));
-};
-
-const authenticate = answer => (dispatch) => {
-  userService.authenticate(answer)
-    .then((res) => {
-      if (res === '202') {
-        dispatch({
-          type: userConstants.AUTH,
-        });
-      } else {
-        dispatch({
-          type: userConstants.LOGIN,
-        });
-      }
-    });
 };
 
 const logout = () => (dispatch) => {
@@ -43,4 +43,5 @@ const logout = () => (dispatch) => {
 export const userActions = {
   login,
   logout,
+  authenticate,
 };
