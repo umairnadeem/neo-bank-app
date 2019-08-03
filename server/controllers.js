@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable camelcase */
 
 const axios = require('axios');
 
@@ -13,10 +14,28 @@ const headers = {
   'X-SP-USER': '|static_pin',
 };
 
+let userId; // Storage for user ID and token
+
+// Always use HTTPS to retrieve these from the server!
+const info = {
+  bank_name: 'fake',
+  bank_id: '',
+  bank_pw: '',
+};
+
+const bankCredentials = {
+  type: 'ACH-US',
+  info,
+};
+
+const authenticate = (res) => {
+  if (res.status === 202) {
+    axios.post(`${url}/users/${userId}/nodes`)
+  }
+}
+
 module.exports = {
   createUser: (req, res) => {
-    let payload; // Storage for user ID and token
-
     const body = {
       logins: [
         {
@@ -32,11 +51,27 @@ module.exports = {
       ],
     };
 
+    // Update user credentials
+    info.bank_id = req.body.username;
+    info.bank_pw = req.body.password;
+
     // Create user
     axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
-        payload = { id: data._id, token: data.refresh_token };
+        const { refresh_token } = data;
+        userId = data._id;
+
+        // OAuth User
+        return axios.post(`${url}/oauth/${userId}`, { refresh_token }, { headers });
       })
-      .catch(err => res.status(400).send(err));
+      .then(({ data }) => {
+        const { oauth_key } = data;
+        headers['X-SP-USER'] = `${oauth_key}|static_pin`; // Update OAuth token
+
+        // Login to bank account
+        return axios.post(`${url}/users/${userId}/nodes`, bankCredentials, { headers });
+      })
+      .then(authenticate)
+      .catch(err => console.error(err.response.data));
   },
 };

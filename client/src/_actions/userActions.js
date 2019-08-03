@@ -1,13 +1,14 @@
+import { userService } from '../_services';
 import { userConstants } from '../_constants';
 
-const login = (e) => {
-  e.preventDefault();
-  return (dispatch) => {
-    dispatch({
+const login = (username, password) => (dispatch) => {
+  userService.login(username, password)
+    .then(() => dispatch({
       type: userConstants.LOGIN,
-      payload: true,
-    });
-  };
+    }))
+    .catch(() => dispatch({
+      type: userConstants.FAIL,
+    }));
 };
 
 const logout = () => (dispatch) => {
