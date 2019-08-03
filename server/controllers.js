@@ -18,19 +18,6 @@ const headers = {
 let userId;
 let access_token;
 
-// Always use HTTPS to retrieve these from the client!
-const info = {
-  bank_name: 'fake',
-  bank_id: '',
-  bank_pw: '',
-};
-
-const bankCredentials = {
-  type: 'ACH-US',
-  info,
-};
-
-
 module.exports = {
   createUser: (req, res) => {
     const body = {
@@ -48,10 +35,6 @@ module.exports = {
       ],
     };
 
-    // Update user credentials
-    info.bank_id = req.body.username;
-    info.bank_pw = req.body.password;
-
     // Create user
     return axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
@@ -63,10 +46,17 @@ module.exports = {
       })
       .then(({ data }) => {
         const { oauth_key } = data;
-        headers['X-SP-USER'] = `${oauth_key}|static_pin`; // Update OAuth token
+        const newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token
+
+        // Always use HTTPS to retrieve these from the client!
+        const info = {
+          bank_name: 'fake',
+          bank_id: req.body.username,
+          bank_pw: req.body.password,
+        };
 
         // Login to bank account
-        return axios.post(`${url}/users/${userId}/nodes`, bankCredentials, { headers });
+        return axios.post(`${url}/users/${userId}/nodes`, { type: 'ACH-US', info }, { headers: newHeaders });
       })
       .then(({ data }) => {
         access_token = data.mfa;
@@ -74,5 +64,5 @@ module.exports = {
       })
       .catch(({ response }) => res.status(400).send(JSON.stringify(response.data)));
   },
-  authenticateUser: mfa_answer => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer }, headers),
+  authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, headers),
 };

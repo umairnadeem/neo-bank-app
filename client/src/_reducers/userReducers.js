@@ -9,7 +9,6 @@ export default function (state = initialState, action) {
     case userConstants.LOGIN:
       return {
         isLoggedIn: true,
-        success: true,
       };
     case userConstants.LOGOUT:
       return {
@@ -17,7 +16,11 @@ export default function (state = initialState, action) {
       };
     case userConstants.FAIL:
       return {
-        success: false,
+        isFail: true,
+      };
+    case userConstants.AUTH:
+      return {
+        requiresAuth: true,
       };
     default:
       return state;
