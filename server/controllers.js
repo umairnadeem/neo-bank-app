@@ -14,9 +14,11 @@ const headers = {
   'X-SP-USER': '|static_pin',
 };
 
-let userId; // Storage for user ID and token
+// Storage for user ID and token
+let userId;
+let access_token;
 
-// Always use HTTPS to retrieve these from the server!
+// Always use HTTPS to retrieve these from the client!
 const info = {
   bank_name: 'fake',
   bank_id: '',
@@ -28,11 +30,6 @@ const bankCredentials = {
   info,
 };
 
-const authenticate = (res) => {
-  if (res.status === 202) {
-    axios.post(`${url}/users/${userId}/nodes`)
-  }
-}
 
 module.exports = {
   createUser: (req, res) => {
@@ -56,7 +53,7 @@ module.exports = {
     info.bank_pw = req.body.password;
 
     // Create user
-    axios.post(`${url}/users`, body, { headers })
+    return axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
         const { refresh_token } = data;
         userId = data._id;
@@ -71,7 +68,11 @@ module.exports = {
         // Login to bank account
         return axios.post(`${url}/users/${userId}/nodes`, bankCredentials, { headers });
       })
-      .then(authenticate)
-      .catch(err => console.error(err.response.data));
+      .then(({ data }) => {
+        access_token = data.mfa;
+        return data.http_code;
+      })
+      .catch(({ response }) => res.status(400).send(JSON.stringify(response.data)));
   },
+  authenticateUser: mfa_answer => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer }, headers),
 };
