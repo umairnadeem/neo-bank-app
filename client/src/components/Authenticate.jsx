@@ -38,13 +38,13 @@ class Authenticate extends React.Component {
 
   render() {
     const { authentication } = this.props;
-
+    const { answer } = this.state;
     return (
       <div>
         <form name="mfa" onSubmit={this.handleSubmit}>
           <h1>MFA pin required:</h1>
           <label htmlFor="answer">
-            <input name="answer" type="text" onChange={this.handleChange} />
+            <input name="answer" value={answer} type="text" onChange={this.handleChange} />
           </label>
           <button type="submit">Submit</button>
         </form>
