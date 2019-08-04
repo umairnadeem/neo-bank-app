@@ -69,3 +69,5 @@ module.exports = {
     .then(({ data }) => res.send(data))
     .catch(({ response }) => res.status(401).send(response.data)),
 };
+
+/* eslint-enable */
