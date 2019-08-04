@@ -4,9 +4,9 @@
   "description": "A simple neo bank client in React/Redux built on top of the Synapse API",
   "main": "server",
   "scripts": {
-    "test": "test",
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "test": "jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
@@ -38,11 +38,14 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.1",
     "babel-preset-react": "^6.23.0",
     "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.2",
@@ -51,5 +54,14 @@
     "jest": "^24.8.0",
     "webpack": "^2.2.1",
     "webpack-cli": "^3.3.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/client/src/**/*.jsx"
+    ],
+    "coverageDirectory": "<rootDir>/coverage",
+    "setupFiles": [
+      "<rootDir>/spec/setup.js"
+    ]
   }
 }
