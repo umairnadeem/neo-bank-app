@@ -18,7 +18,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Node 8.10.0
 
 ## Usage
-
+Insert API client ID and secret in server/config/indexExample.js, then rename it to index.js.
+ 
 From within the root directory:
 ```sh
 npm install
