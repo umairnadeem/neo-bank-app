@@ -1,6 +1,7 @@
 import { userConstants } from '../_constants';
 
 const initialState = {
+  requiresLogin: true,
   isLoggedIn: false,
 };
 
@@ -12,16 +13,21 @@ export default function (state = initialState, action) {
       };
     case userConstants.LOGOUT:
       return {
-        isLoggedIn: false,
+        requiresLogin: true,
       };
     case userConstants.FAIL:
       return {
-        isFail: true,
+        requiresLogin: true,
         error: action.error,
       };
     case userConstants.AUTH:
       return {
         requiresAuth: true,
+      };
+    case userConstants.MFA_FAIL:
+      return {
+        requiresAuth: true,
+        error: action.error,
       };
     default:
       return state;

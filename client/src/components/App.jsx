@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 import LoginPage from './LoginPage';
+import Authenticate from './Authenticate';
 // import Sidebar from './Sidebar';
 // import Main from './Main';
 
@@ -16,9 +17,12 @@ const actionCreators = () => ({
 
 const App = ({ authentication }) => (
   <div className="container">
-    {authentication.isLoggedIn
-      ? null
-      : <LoginPage />}
+    {authentication.requiresLogin
+      ? <LoginPage />
+      : null }
+    { authentication.requiresAuth
+      ? <Authenticate />
+      : null }
     {/* <Sidebar />
     <Main /> */}
   </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
-import Authenticate from './Authenticate';
+import Error from './Error';
 
 const actions = {
   login: userActions.login,
@@ -60,9 +60,9 @@ class LoginPage extends React.Component {
           </label>
           <button type="submit">Submit</button>
         </form>
-        { authentication.requiresAuth
-          ? <Authenticate />
-          : null}
+        { authentication.error
+          ? <Error />
+          : null }
       </div>
     );
   }

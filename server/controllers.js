@@ -17,6 +17,7 @@ const headers = {
 // Storage for user ID and token
 let userId;
 let access_token;
+let newHeaders;
 
 module.exports = {
   createUser: (req, res) => {
@@ -46,7 +47,7 @@ module.exports = {
       })
       .then(({ data }) => {
         const { oauth_key } = data;
-        const newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token
+        newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token
 
         // Always use HTTPS to retrieve these from the client!
         const info = {
@@ -59,14 +60,12 @@ module.exports = {
         return axios.post(`${url}/users/${userId}/nodes`, { type: 'ACH-US', info }, { headers: newHeaders });
       })
       .then(({ data }) => {
-        access_token = data.mfa;
+        ({ mfa: { access_token } } = data); // Extract access_token from response
         res.send(data.http_code);
       })
       .catch(({ response }) => res.status(401).send(response.data));
   },
-  authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, headers)
-    .then(({ data }) => {
-      access_token = data.mfa;
-      res.send(data.http_code);
-    }),
+  authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, { headers: newHeaders })
+    .then(({ data }) => res.send(data))
+    .catch(({ response }) => res.status(401).send(response.data)),
 };

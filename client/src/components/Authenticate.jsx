@@ -2,10 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userActions } from '../_actions';
+import Error from './Error';
 
 const actions = {
   authenticate: userActions.authenticate,
 };
+
+const mapStateToProps = state => ({
+  authentication: state.authentication,
+});
 
 class Authenticate extends React.Component {
   constructor(props) {
@@ -32,15 +37,20 @@ class Authenticate extends React.Component {
   }
 
   render() {
+    const { authentication } = this.props;
+
     return (
       <div>
         <form name="mfa" onSubmit={this.handleSubmit}>
           <h1>MFA pin required:</h1>
-          <label htmlFor="mfa_answer">
-            <input id="mfa_answer" type="text" onChange={this.handleChange} />
+          <label htmlFor="answer">
+            <input name="answer" type="text" onChange={this.handleChange} />
           </label>
           <button type="submit">Submit</button>
         </form>
+        { authentication.error
+          ? <Error />
+          : null }
       </div>
     );
   }
@@ -48,6 +58,11 @@ class Authenticate extends React.Component {
 
 Authenticate.propTypes = {
   authenticate: PropTypes.func.isRequired,
+  authentication: PropTypes.objectOf(PropTypes.any),
 };
 
-export default connect(null, actions)(Authenticate);
+Authenticate.defaultProps = {
+  authentication: {},
+};
+
+export default connect(mapStateToProps, actions)(Authenticate);

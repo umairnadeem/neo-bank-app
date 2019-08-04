@@ -1,23 +1,32 @@
+/* eslint-disable camelcase */
+
 import { userService } from '../_services';
 import { userConstants } from '../_constants';
 
 const authenticate = (answer = '') => (dispatch) => {
   userService.authenticate(answer)
     .then(({ data }) => {
-      if (data === 202) {
+      const { http_code } = data;
+      console.log(http_code)
+      if (http_code === 202 || http_code === '202') {
+        const { mfa: { message } } = data;
         dispatch({
-          type: userConstants.AUTH,
+          type: userConstants.MFA_FAIL,
+          error: message,
         });
-      } else if (data === 200) {
+      } else if (http_code === 200 || http_code === '200') {
         dispatch({
           type: userConstants.LOGIN,
         });
       }
     })
-    .catch(({ error }) => dispatch({
-      type: userConstants.FAIL,
-      error,
-    }));
+    .catch(({ response }) => {
+      const { data: { error } } = response;
+      dispatch({
+        type: userConstants.FAIL,
+        error,
+      });
+    });
 };
 
 const login = (username, password) => (dispatch) => {
@@ -37,7 +46,7 @@ const login = (username, password) => (dispatch) => {
       const { error } = response.data;
       dispatch({
         type: userConstants.FAIL,
-        error,
+        error: error.en,
       });
     });
 };
@@ -53,3 +62,5 @@ export const userActions = {
   logout,
   authenticate,
 };
+
+/* eslint-enable */
