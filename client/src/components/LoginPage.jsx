@@ -52,7 +52,7 @@ class LoginPage extends React.Component {
           <h1>Login</h1>
           <label htmlFor="username">
             Username:
-            <input name="username" type="text" value={username} onChange={this.handleChange} />
+            <input dataKey="username" name="username" type="text" value={username} onChange={this.handleChange} />
           </label>
           <label htmlFor="password">
             Password:
