@@ -59,11 +59,17 @@ module.exports = {
         // Login to bank account
         return axios.post(`${url}/users/${userId}/nodes`, { type: 'ACH-US', info }, { headers: newHeaders });
       })
-      .then(({ data }) => {
-        ({ mfa: { access_token } } = data); // Extract access_token from response
-        res.send(data.http_code);
-      })
-      .catch(({ response }) => res.status(401).send(response.data));
+      .then(
+        ({ data }) => {
+          if (+data.http_code === 202) {
+            ({ mfa: { access_token } } = data); // Extract access_token from response
+          }
+          res.send(data);
+        },
+      )
+      .catch(
+        ({ response }) => res.status(401).send(response.data),
+      );
   },
   authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, { headers: newHeaders })
     .then(({ data }) => res.send(data))

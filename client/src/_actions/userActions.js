@@ -29,11 +29,13 @@ const authenticate = (answer = '') => dispatch => userService.authenticate(answe
 
 const login = (username, password) => dispatch => userService.login(username, password)
   .then(({ data }) => {
-    if (data && +data === 202) {
+    const { http_code } = data;
+
+    if (http_code && +http_code === 202) {
       dispatch({
         type: userConstants.AUTH,
       });
-    } else if (data && +data === 200) {
+    } else if (http_code && +http_code === 200) {
       dispatch({
         type: userConstants.LOGIN,
       });
