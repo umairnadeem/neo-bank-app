@@ -43,10 +43,10 @@ const login = (username, password) => (dispatch) => {
       }
     })
     .catch(({ response }) => {
-      const { error } = response.data;
+      const { data: { error } } = response;
       dispatch({
         type: userConstants.FAIL,
-        error: error ? error.en : 'Internal error',
+        error: error ? error.en : 'Cloudfare error',
       });
     });
 };
