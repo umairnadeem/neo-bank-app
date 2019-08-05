@@ -58,7 +58,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "<rootDir>/client/src/**/*.jsx"
+      "<rootDir>/client/src/**/*.{js, jsx}"
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "setupFiles": [

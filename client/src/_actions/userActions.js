@@ -23,7 +23,7 @@ const authenticate = (answer = '') => dispatch => userService.authenticate(answe
     const { data: { error } } = response;
     dispatch({
       type: userConstants.FAIL,
-      error,
+      error: error ? error.en : 'MFA error',
     });
   });
 
