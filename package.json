@@ -52,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.8.0",
+    "redux-mock-store": "^1.5.3",
     "webpack": "^2.2.1",
     "webpack-cli": "^3.3.2"
   },

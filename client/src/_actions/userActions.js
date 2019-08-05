@@ -3,59 +3,53 @@
 import { userService } from '../_services';
 import { userConstants } from '../_constants';
 
-const authenticate = (answer = '') => (dispatch) => {
-  userService.authenticate(answer)
-    .then(({ data }) => {
-      const { http_code } = data;
+const authenticate = (answer = '') => dispatch => userService.authenticate(answer)
+  .then(({ data }) => {
+    const { http_code } = data;
 
-      if (http_code && +http_code === 202) {
-        const { mfa: { message } } = data;
-        dispatch({
-          type: userConstants.MFA_FAIL,
-          error: message,
-        });
-      } else if (http_code && +http_code === 200) {
-        dispatch({
-          type: userConstants.LOGIN,
-        });
-      }
-    })
-    .catch(({ response }) => {
-      const { data: { error } } = response;
+    if (http_code && +http_code === 202) {
+      const { mfa: { message } } = data;
       dispatch({
-        type: userConstants.FAIL,
-        error,
+        type: userConstants.MFA_FAIL,
+        error: message,
       });
-    });
-};
-
-const login = (username, password) => (dispatch) => {
-  userService.login(username, password)
-    .then(({ data }) => {
-      if (data && +data === 202) {
-        dispatch({
-          type: userConstants.AUTH,
-        });
-      } else if (data && +data === 200) {
-        dispatch({
-          type: userConstants.LOGIN,
-        });
-      }
-    })
-    .catch(({ response }) => {
-      const { data: { error } } = response;
+    } else if (http_code && +http_code === 200) {
       dispatch({
-        type: userConstants.FAIL,
-        error: error ? error.en : 'Cloudfare error',
+        type: userConstants.LOGIN,
       });
+    }
+  })
+  .catch(({ response }) => {
+    const { data: { error } } = response;
+    dispatch({
+      type: userConstants.FAIL,
+      error,
     });
-};
-
-const logout = () => (dispatch) => {
-  dispatch({
-    type: userConstants.LOGOUT,
   });
-};
+
+const login = (username, password) => dispatch => userService.login(username, password)
+  .then(({ data }) => {
+    if (data && +data === 202) {
+      dispatch({
+        type: userConstants.AUTH,
+      });
+    } else if (data && +data === 200) {
+      dispatch({
+        type: userConstants.LOGIN,
+      });
+    }
+  })
+  .catch(({ response }) => {
+    const { data: { error } } = response;
+    dispatch({
+      type: userConstants.FAIL,
+      error: error ? error.en : 'Login error',
+    });
+  });
+
+const logout = () => dispatch => dispatch({
+  type: userConstants.LOGOUT,
+});
 
 export const userActions = {
   login,
