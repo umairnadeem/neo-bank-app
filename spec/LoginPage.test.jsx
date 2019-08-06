@@ -8,7 +8,7 @@ import store from '../client/src/_store';
 
 const setup = () => {
   const props = { store };
-  const wrapper = shallow(<LoginPage {...props} />);
+  const wrapper = shallow(<LoginPage {...props} />).dive().dive();
 
   return {
     props,
@@ -24,22 +24,55 @@ describe('Login page component', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('should render the Error component upon invalid login credentials', () => {
+  it('should render a form with username and password fields', () => {
     const { wrapper } = setup();
 
-    // Mock axios request to always fail
-    mockAxios.post.mockImplementationOnce(
-      () => Promise.reject({ response: { data: '' } }),
-    );
+    // There should be 1 form
+    expect(wrapper.find('form')).toHaveLength(1);
+    
+    // There should be an input with the name 'username'
+    expect(wrapper.find('input[name="username"]')).toHaveLength(1);
 
-    const value = 'invalid';
+    // There should be an input with the name 'password'
+    expect(wrapper.find('input[name="password"]')).toHaveLength(1);
+  });
 
-    // Input invalid credentials
-    wrapper.find('[name="username"]').simulate('change', { target: { value } });
-    wrapper.find('[name="password"]').simulate('change', { target: { value } });
+  it('should not render the Error component upon mount', () => {
+    const { wrapper } = setup();
 
-    // Click submit
-    wrapper.find('form').simulate('submit');
+    // the Error component should not be rendered
+    expect(wrapper.find('Error')).toHaveLength(0);
+  });
+
+  it('should update username and password fields in component state', () => {
+    const { wrapper } = setup();
+
+    const input = {
+      username: wrapper.find('input[name="username"]'),
+      password: wrapper.find('input[name="password"]'),
+    };
+
+    // Simulate change in username field
+    input.username.props().onChange({
+      target: {
+        name: 'username',
+        value: 'usernameTest',
+      },
+    });
+
+    // Expect the change to update state with entered username
+    expect(wrapper.state('username')).toEqual('usernameTest');
+
+    // Simulate change in password field
+    input.password.props().onChange({
+      target: {
+        name: 'password',
+        value: 'passwordTest',
+      },
+    });
+
+    // Expect the change to update state with entered password
+    expect(wrapper.state('password')).toEqual('passwordTest');
   });
 });
 
