@@ -29,7 +29,7 @@ describe('Login page component', () => {
 
     // There should be 1 form
     expect(wrapper.find('form')).toHaveLength(1);
-    
+
     // There should be an input with the name 'username'
     expect(wrapper.find('input[name="username"]')).toHaveLength(1);
 
