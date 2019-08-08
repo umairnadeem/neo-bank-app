@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564979437411" clover="3.2.0">
-  <project timestamp="1564979437411" name="All files">
-    <metrics statements="38" coveredstatements="30" conditionals="30" coveredconditionals="17" methods="16" coveredmethods="13" elements="84" coveredelements="60" complexity="0" loc="38" ncloc="38" packages="5" files="9" classes="9"/>
+<coverage generated="1565224820691" clover="3.2.0">
+  <project timestamp="1565224820692" name="All files">
+    <metrics statements="38" coveredstatements="30" conditionals="30" coveredconditionals="17" methods="16" coveredmethods="15" elements="84" coveredelements="62" complexity="0" loc="38" ncloc="38" packages="5" files="9" classes="9"/>
     <package name="_actions">
-      <metrics statements="19" coveredstatements="16" conditionals="21" coveredconditionals="14" methods="10" coveredmethods="7"/>
+      <metrics statements="19" coveredstatements="16" conditionals="21" coveredconditionals="14" methods="10" coveredmethods="9"/>
       <file name="index.js" path="/home/umairnadeem/Documents/personal-projects/neo-bank-app/client/src/_actions/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="userActions.js" path="/home/umairnadeem/Documents/personal-projects/neo-bank-app/client/src/_actions/userActions.js">
-        <metrics statements="19" coveredstatements="16" conditionals="21" coveredconditionals="14" methods="10" coveredmethods="7"/>
+        <metrics statements="19" coveredstatements="16" conditionals="21" coveredconditionals="14" methods="10" coveredmethods="9"/>
         <line num="6" count="5" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="5" type="stmt"/>
         <line num="10" count="5" type="cond" truecount="4" falsecount="0"/>

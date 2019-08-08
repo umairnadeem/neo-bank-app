@@ -100,6 +100,17 @@ describe('Login action creator behavior', () => {
 
     return multipleMFA();
   });
+
+  it('should dispatch LOGOUT action upon logout', () => {
+    const store = mockStore({});
+
+    const expectedActions = [{ type: userConstants.LOGOUT }];
+
+    store.dispatch(userActions.logout());
+
+    // Logging out should result in logout action beding dispatched
+    expect(store.getActions()).toMatchObject(expectedActions);
+  });
 });
 
 /* eslint-enable */

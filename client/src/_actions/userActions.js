@@ -16,6 +16,7 @@ const authenticate = (answer = '') => dispatch => userService.authenticate(answe
     } else if (http_code && +http_code === 200) {
       dispatch({
         type: userConstants.LOGIN,
+        payload: data,
       });
     }
   })

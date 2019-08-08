@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 import LoginPage from './LoginPage';
 import Authenticate from './Authenticate';
-// import Sidebar from './Sidebar';
-// import Main from './Main';
+import Sidebar from './Sidebar';
+import Main from './Main';
 
 const mapStateToProps = state => ({
   authentication: state.authentication,
@@ -15,16 +15,29 @@ const actionCreators = () => ({
   userActions,
 });
 
-const App = ({ authentication }) => (
-  <div className="container">
-    {authentication.requiresLogin
+const App = ({
+  authentication:
+  {
+    requiresLogin,
+    requiresAuth,
+    isLoggedIn,
+  },
+}) => (
+  <div className="flex">
+    {requiresLogin
       ? <LoginPage />
       : null }
-    { authentication.requiresAuth
+    { requiresAuth
       ? <Authenticate />
       : null }
-    {/* <Sidebar />
-    <Main /> */}
+    { isLoggedIn
+      ? (
+        <Fragment>
+          <Sidebar />
+          <Main />
+        </Fragment>
+      )
+      : null }
   </div>
 );
 
