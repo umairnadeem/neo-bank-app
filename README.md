@@ -1,6 +1,6 @@
 # Neo Bank App
 
-> A modern banking app wrapper that displays your banking information in a convenient manner. Current features include a graph display of your earnings/spending and the ability to send/recieve money. 
+> A modern banking app wrapper that displays your banking information in a convenient manner. Proposed features include a graph display of your earnings/spending and the ability to send/recieve money. 
 
 ## Table of Contents
 
@@ -28,24 +28,38 @@ npm start
 ```
 - In a browser, go to: localhost:3000
 
+## Credentials
+| Type  | Value | Description |
+| ------------- | ------------- |------------- |
+| Username  | ```synapse_good```  | Working username |
+| Password  | ```test1234```  | Working password |
+| MFA  | ```test_answer```  | Takes you to dashboard |
+| MFA  | ```again```  | Requires another MFA step |
+
 ## REST API Routes
 
 | Type  | Route | Description |
 | ------------- | ------------- |------------- |
-| GET  | ```/api/v1/```  | Placeholder |
-| PUT  | ```/api/v1/```  | Placeholder |
-| POST  | ```/api/v1/```  | Placeholder |
-| DELETE  | ```/api/v1/```  | Placeholder |
-
+| POST  | ```/api/v1/users/create```  | Creates a user with a given username and password in body |
+| POST  | ```/api/v1/users/authenticate```  | Authenticate a user with the provided MFA key |
 ## API Examples
 
-- Placeholder:
-```GET: /api/v1/```
+```POST: /api/v1/users/authenticate```
+- Authenticate a user (MFA):
 ```
 {
-  data: [{}];
+  data: {
+  error_code: '0',
+  http_code: '200',
+  limit: 2,
+  node_count: 2,
+  nodes: [{
+    ...
+    }]
+  }
 }
   ```
+
 
 ## Testing
 
@@ -56,4 +70,7 @@ npm test
 
 ## Future features
 Todo:
-  - Add features
+  - Add timeline showing transactions over time
+  - Allow money transfer
+  - Show money-in/money-out for each account
+  - Allow switching account to change graph
