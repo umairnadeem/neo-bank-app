@@ -41,11 +41,9 @@ class Authenticate extends React.Component {
     const { answer } = this.state;
     return (
       <div>
-        <form name="mfa" onSubmit={this.handleSubmit}>
+        <form name="mfa" className="container" onSubmit={this.handleSubmit}>
           <h1>MFA pin required:</h1>
-          <label htmlFor="answer">
-            <input name="answer" value={answer} type="text" onChange={this.handleChange} />
-          </label>
+          <input name="answer" value={answer} type="text" onChange={this.handleChange} placeholder="Your answer" />
           <button type="submit">Submit</button>
         </form>
         { authentication.error

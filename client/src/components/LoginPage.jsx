@@ -48,16 +48,10 @@ class LoginPage extends React.Component {
 
     return (
       <div>
-        <form name="form" onSubmit={this.handleSubmit}>
+        <form name="form" className="container" onSubmit={this.handleSubmit}>
           <h1>Login</h1>
-          <label htmlFor="username">
-            Username:
-            <input name="username" type="text" value={username} onChange={this.handleChange} />
-          </label>
-          <label htmlFor="password">
-            Password:
-            <input name="password" type="text" value={password} onChange={this.handleChange} />
-          </label>
+          <input name="username" type="text" value={username} onChange={this.handleChange} placeholder="Username" />
+          <input name="password" type="text" value={password} onChange={this.handleChange} placeholder="Password" />
           <button type="submit">Submit</button>
         </form>
         { authentication.error

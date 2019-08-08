@@ -61,6 +61,7 @@ module.exports = {
       })
       .then(
         ({ data }) => {
+          // If MFA required
           if (+data.http_code === 202) {
             ({ mfa: { access_token } } = data); // Extract access_token from response
           }
@@ -72,6 +73,9 @@ module.exports = {
       );
   },
   authenticateUser: (req, res) => axios.post(`${url}/users/${userId}/nodes`, { access_token, mfa_answer: req.body.answer }, { headers: newHeaders })
+    .then(({ data }) => res.send(data))
+    .catch(({ response }) => res.status(401).send(response.data)),
+  getTransactions: (req, res) => axios.get(`${url}/users/${userId}/node/${req.params.nodeId}/trans`, { headers: newHeaders })
     .then(({ data }) => res.send(data))
     .catch(({ response }) => res.status(401).send(response.data)),
 };

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import mockAxios from 'axios';
 import LoginPage from '../client/src/components/LoginPage';
 import store from '../client/src/_store';
 
