@@ -83,3 +83,7 @@ ul {
   width: 300px;
   height: 100%;
 }
+
+.flex {
+  display: flex;
+}
