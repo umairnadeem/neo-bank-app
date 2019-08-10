@@ -28,6 +28,10 @@ input {
   border-bottom: 1px solid grey;
 }
 
+form {
+  margin: 10px auto;
+}
+
 button {
   background-color: #4d62ee;
   color: white;
@@ -43,7 +47,6 @@ button:hover {
 }
 
 .container {
-  margin: 10px auto;
   border-radius: 6px;
   padding: 20px;
   max-width: 300px;
@@ -68,6 +71,8 @@ ul {
 }
 
 .main {
+  display: inline;
+  border: 1px solid black;
   flex: 2;
 }
 
