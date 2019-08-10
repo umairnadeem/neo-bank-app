@@ -71,7 +71,6 @@ ul {
 }
 
 .main {
-  display: inline;
   border: 1px solid black;
   flex: 2;
 }
