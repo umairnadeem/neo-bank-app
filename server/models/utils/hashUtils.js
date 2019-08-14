@@ -26,9 +26,7 @@ exports.createHash = (data, salt = '') => {
  * @returns {boolean} A boolean indicating if the attempted value
  * matches the stored value.
  */
-exports.compareHash = (attempted, stored, salt) => {
-  return stored === this.createHash(attempted, salt);
-};
+exports.compareHash = (attempted, stored, salt) => stored === this.createHash(attempted, salt);
 
 /**
  * Creates a random 32 byte string.
