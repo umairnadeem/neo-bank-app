@@ -2,6 +2,7 @@
 /* eslint-disable camelcase */
 
 const axios = require('axios');
+const models = require('../models');
 
 const url = 'https://uat-api.synapsefi.com/v3.1';
 
