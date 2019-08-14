@@ -12,7 +12,7 @@ Hashing Utility functions
  * @param {string} [salt] - The salt to add to the data before hashing.
  * @returns {string} A string with the hashed value.
  */
-exports.createHash = (data, salt = '') => {
+module.exports.createHash = (data, salt = '') => {
   const shasum = crypto.createHash('sha256');
   shasum.update(data + salt);
   return shasum.digest('hex');
@@ -26,10 +26,14 @@ exports.createHash = (data, salt = '') => {
  * @returns {boolean} A boolean indicating if the attempted value
  * matches the stored value.
  */
-exports.compareHash = (attempted, stored, salt) => stored === this.createHash(attempted, salt);
+module.exports.compareHash = (attempted, stored, salt) => (
+  stored === this.createHash(attempted, salt)
+);
 
 /**
  * Creates a random 32 byte string.
  * @returns {string} A random string.
  */
-exports.createRandom32String = () => crypto.randomBytes(32).toString('hex');
+module.exports.createRandom32String = () => (
+  crypto.randomBytes(32).toString('hex')
+);

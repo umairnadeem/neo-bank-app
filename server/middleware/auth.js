@@ -2,21 +2,22 @@ const models = require('../models');
 
 /**
  * Verifies a user's session using cookies if exists, creates a new one otherwise
- * @param {Object} req - request object
- * @param {Object} res - response object
- * @param {Function} next - next middleware function
+ * @param {Object} req - Request object
+ * @param {Object} res - Response object
+ * @param {Function} next - Next middleware function
  */
-const createSession = (req, res, next) => {
+module.exports.createSession = (req, res, next) => {
   // Extract existing cookie from request if exists
   const { cookies: { neobank } } = req;
   if (neobank) {
-    models.find({ hash: neobank })
+    models.db.find({ hash: neobank })
       .then((data) => {
-        models.createUser(data.username, data.password);
+        models.api.createUser(data.username, data.password);
       })
       .catch(err => console.error(err));
+  } else {
+    const cookie = models.utils.createRandom32String();
+    res.cookie('neobank', cookie);
   }
   next();
 };
-
-export default createSession;
