@@ -72,11 +72,10 @@ ul {
 
 .main {
   border: 1px solid black;
-  flex: 2;
 }
 
 .sidebar {
-  flex: 1;
+  flex-basis: 200px;
   background: black;
   color: white;
   width: 300px;

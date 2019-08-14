@@ -2,10 +2,11 @@
 /* eslint-disable camelcase */
 
 const axios = require('axios');
+const models = require('../models');
 
 const url = 'https://uat-api.synapsefi.com/v3.1';
 
-const { clientID, clientSecret } = require('./config');
+const { clientID, clientSecret } = require('../config');
 
 const headers = {
   'Content-Type': 'application/json',
