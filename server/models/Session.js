@@ -2,14 +2,16 @@ const Sequelize = require('sequelize');
 const sequelize = require('./index');
 
 const Session = sequelize.define('session', {
-  userID: {
+  userId: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  accessToken: {
+  access_token: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  OAuth: Sequelize.STRING,
+  oauth_key: Sequelize.STRING,
   hash: Sequelize.STRING,
 });
+
+module.exports = Session;
