@@ -6,7 +6,7 @@ const axios = require('axios');
 class Session {
   constructor(clientID, clientSecret) {
     this.id = null;
-    this.accessToken = null;
+    this.access_token = null;
     this.url = 'https://uat-api.synapsefi.com/v3.1';
     this.headers = {
       'Content-Type': 'application/json',
