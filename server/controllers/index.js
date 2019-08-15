@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 
 const axios = require('axios');
-const models = require('../models');
+const { Session } = require('../models');
 
 const url = 'https://uat-api.synapsefi.com/v3.1';
 
@@ -22,6 +22,9 @@ let newHeaders;
 
 module.exports = {
   createUser: (req, res) => {
+    const session = new Session(clientID, clientSecret);
+
+    session.getOAuth()
       .then(({ data }) => {
         const { oauth_key } = data;
         newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token

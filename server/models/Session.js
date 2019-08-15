@@ -1,3 +1,6 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable camelcase */
+
 const axios = require('axios');
 
 class Session {
@@ -36,15 +39,17 @@ class Session {
   getOAuth() {
     const { headers, body, url } = this;
 
-    axios.post(`${url}/users`, body, { headers })
+    return axios.post(`${url}/users`, body, { headers })
       .then(({ data }) => {
         const { refresh_token } = data;
-        this.userId = data._id;
+        this.id = data._id;
 
         // OAuth User
         return axios.post(`${url}/oauth/${this.id}`, { refresh_token }, { headers });
-      })
+      });
   }
 }
 
 module.exports = Session;
+
+/* eslint-enable */

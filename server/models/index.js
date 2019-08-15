@@ -1,9 +1,9 @@
 const db = require('./db');
-const api = require('./api');
+const Session = require('./Session');
 const utils = require('./utils');
 
 module.exports = {
-  api,
+  Session,
   db,
   utils,
 };
