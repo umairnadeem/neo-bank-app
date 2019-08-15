@@ -36,7 +36,6 @@ module.exports = {
     return session.authenticate(answer)
       .then(({ data }) => res.send(data))
       .catch(({ response }) => {
-        console.log(response)
         session.killAll(cookies.neobank);
         res.status(401).send(response.data);
       });

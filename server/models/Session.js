@@ -88,9 +88,7 @@ class Session extends Model {
       id,
       headers,
     } = this;
-    console.log('id: ', id)
-console.log('session authenticate: ', headers)
-console.log('payload: ', { access_token, mfa_answer: answer })
+
     return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: answer }, { headers });
   }
 

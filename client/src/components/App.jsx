@@ -19,7 +19,6 @@ class App extends React.PureComponent {
   componentDidMount() {
     const { verify, authentication: { requiresLogin } } = this.props;
     if (requiresLogin) {
-      console.log('verifying')
       verify();
     }
   }
