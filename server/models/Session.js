@@ -71,6 +71,17 @@ class Session {
     // Login to bank account
     return axios.post(`${url}/users/${id}/nodes`, { type: 'ACH-US', info }, { headers });
   }
+
+  authenticate(answer) {
+    const {
+      url,
+      access_token,
+      id,
+      headers,
+    } = this;
+
+    return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: answer }, { headers });
+  }
 }
 
 module.exports = Session;

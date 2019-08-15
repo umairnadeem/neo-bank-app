@@ -29,14 +29,9 @@ module.exports = {
       );
   },
   authenticateUser: (req, res) => {
-    const {
-      url,
-      access_token,
-      id,
-      headers,
-    } = session;
+    const { body: { answer } } = req;
 
-    return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: req.body.answer }, { headers })
+    return session.authenticate(answer)
       .then(({ data }) => res.send(data))
       .catch(({ response }) => res.status(401).send(response.data));
   },
