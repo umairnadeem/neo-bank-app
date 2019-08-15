@@ -1,5 +1,14 @@
 const axios = require('axios');
 
+const { clientID, clientSecret } = require('../../config');
+
+const headers = {
+  'Content-Type': 'application/json',
+  'X-SP-GATEWAY': `${clientID}|${clientSecret}`,
+  'X-SP-USER-IP': '127.0.0.1',
+  'X-SP-USER': '|static_pin',
+};
+
 const body = {
   logins: [
     {
@@ -16,6 +25,7 @@ const body = {
 };
 
 const url = 'https://uat-api.synapsefi.com/v3.1';
+
 /**
  * Gets OAuth keys using provided headers
  * @param {Object} headers - Request headers for Synapse API

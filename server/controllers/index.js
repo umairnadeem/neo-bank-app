@@ -22,30 +22,6 @@ let newHeaders;
 
 module.exports = {
   createUser: (req, res) => {
-    const body = {
-      logins: [
-        {
-          email: 'test@synapsefi.com',
-        },
-      ],
-      phone_numbers: [
-        '901.111.1111',
-        'test@synapsefi.com',
-      ],
-      legal_names: [
-        'Test User',
-      ],
-    };
-
-    // Create user
-    axios.post(`${url}/users`, body, { headers })
-      .then(({ data }) => {
-        const { refresh_token } = data;
-        userId = data._id;
-
-        // OAuth User
-        return axios.post(`${url}/oauth/${userId}`, { refresh_token }, { headers });
-      })
       .then(({ data }) => {
         const { oauth_key } = data;
         newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token
