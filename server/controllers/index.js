@@ -2,15 +2,15 @@
 /* eslint-disable camelcase */
 
 const axios = require('axios');
-const { Session } = require('../models');
-
-const { clientID, clientSecret } = require('../config');
-
-const session = new Session(clientID, clientSecret);
 
 module.exports = {
+  // verifyUser: (req, res) => {
+  //   req.session.getNodes()
+  //     .then(({ data }) => res.status(200).send(data))
+  //     .catch(({ response }) => res.status(401).send(response.data));
+  // },
   createUser: (req, res) => {
-    const { body: { username, password } } = req;
+    const { cookies, session, body: { username, password } } = req;
 
     session.getOAuth()
       .then(() => session.login(username, password))
@@ -21,6 +21,7 @@ module.exports = {
             const { mfa: { access_token } } = data; // Extract access_token from response
             session.access_token = access_token;
           }
+          session.save(cookies.neobank);
           res.send(data);
         },
       )
@@ -29,13 +30,18 @@ module.exports = {
       );
   },
   authenticateUser: (req, res) => {
-    const { body: { answer } } = req;
+    const { cookies, session, body: { answer } } = req;
 
     return session.authenticate(answer)
       .then(({ data }) => res.send(data))
-      .catch(({ response }) => res.status(401).send(response.data));
+      .catch(({ response }) => {
+        // console.log(response)
+        session.killAll(cookies.neobank);
+        res.status(401).send(response.data);
+      });
   },
   getTransactions: (req, res) => {
+    const { session } = req;
     const { url, headers, id } = session;
     return axios.get(`${url}/users/${id}/node/${req.params.nodeId}/trans`, { headers })
       .then(({ data }) => res.send(data))

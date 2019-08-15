@@ -8,7 +8,7 @@ class Session extends Model {
   constructor(clientID, clientSecret) {
     super('users');
     this.id = null;
-    this.access_token = null; // TODO: remove?
+    this.access_token = null;
     this.oauth_key = null;
     this.url = 'https://uat-api.synapsefi.com/v3.1';
     this.headers = {
@@ -45,23 +45,22 @@ class Session extends Model {
       .then(({ data }) => {
         const { refresh_token } = data;
         this.id = data._id;
-
+console.log('session oauth')
         // OAuth User
         return axios.post(`${url}/oauth/${this.id}`, { refresh_token }, { headers });
       })
       .then(({ data }) => {
         const { oauth_key } = data;
-
+        this.oauth_key = oauth_key;
         // Update OAuth token
         this._updateHeader(oauth_key);
       });
   }
 
-  _updateHeader(oauth_key) {
+  _updateHeader(oauth_key = this.oauth_key) {
     const { headers } = this;
     // Update OAuth token
     this.headers = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` };
-    this.oauth_key = oauth_key;
   }
 
   /**
@@ -77,7 +76,7 @@ class Session extends Model {
       bank_id: username,
       bank_pw: password,
     };
-
+    console.log('session login')
     // Login to bank account
     return axios.post(`${url}/users/${id}/nodes`, { type: 'ACH-US', info }, { headers });
   }
@@ -89,7 +88,8 @@ class Session extends Model {
       id,
       headers,
     } = this;
-
+console.log('session authenticate: ', headers)
+console.log('answers: ', access_token)
     return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: answer }, { headers });
   }
 
@@ -100,7 +100,8 @@ class Session extends Model {
     } = this;
 
     if (oauth_key) {
-      this._updateHeader(oauth_key);
+      this.oauth_key = oauth_key;
+      this._updateHeader();
     }
 
     return axios.get(`${url}/users/${id}/nodes`, { headers });
@@ -108,6 +109,17 @@ class Session extends Model {
 
   save(cookie) {
     return super.create.call(this, cookie);
+  }
+
+  restore({ userId, oauth, access_token }) {
+    this.id = userId;
+    this.oauth_key = oauth;
+    this.access_token = access_token;
+    this._updateHeader();
+  }
+
+  killAll(cookie) {
+    return super.delete.call(this, cookie);
   }
 }
 

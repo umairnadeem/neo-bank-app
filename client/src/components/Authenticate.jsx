@@ -42,7 +42,7 @@ class Authenticate extends React.Component {
     return (
       <div>
         <form name="mfa" className="container" onSubmit={this.handleSubmit}>
-          <h1>MFA pin required:</h1>
+          <h1>{authentication.message || 'MFA Required: '}</h1>
           <input name="answer" value={answer} type="text" onChange={this.handleChange} placeholder="Your answer" />
           <button type="submit">Submit</button>
         </form>

@@ -9,12 +9,15 @@ const User = sequelize.define('user', {
     autoIncrement: true,
     primaryKey: true,
   },
-  userId: Sequelize.INTEGER,
+  userId: Sequelize.STRING,
   oauth: Sequelize.STRING,
+  access_token: Sequelize.STRING,
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   mfa: Sequelize.STRING,
   hash: Sequelize.STRING,
 });
+
+User.sync();
 
 module.exports = User;

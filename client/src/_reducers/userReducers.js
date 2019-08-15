@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
     case userConstants.AUTH:
       return {
         requiresAuth: true,
+        message: action.payload,
       };
     case userConstants.MFA_FAIL:
       return {

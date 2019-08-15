@@ -35,10 +35,12 @@ const login = (username, password) => dispatch => userService.login(username, pa
     if (http_code && +http_code === 202) {
       dispatch({
         type: userConstants.AUTH,
+        payload: data.mfa.message,
       });
     } else if (http_code && +http_code === 200) {
       dispatch({
         type: userConstants.LOGIN,
+        payload: data,
       });
     }
   })
@@ -54,9 +56,19 @@ const logout = () => dispatch => dispatch({
   type: userConstants.LOGOUT,
 });
 
+const verify = () => dispatch => userService.verify()
+  .then(({ data }) => dispatch({
+    type: userConstants.LOGIN,
+    payload: data,
+  }))
+  .catch(() => dispatch({
+    type: userConstants.LOGOUT,
+  }));
+
 export const userActions = {
   login,
   logout,
+  verify,
   authenticate,
 };
 
