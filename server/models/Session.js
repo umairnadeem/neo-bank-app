@@ -58,7 +58,7 @@ class Session extends Model {
   }
 
   _updateHeader(oauth_key) {
-    const { headers } = this.headers;
+    const { headers } = this;
     // Update OAuth token
     this.headers = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` };
     this.oauth_key = oauth_key;

@@ -1,4 +1,4 @@
-const models = require('../models');
+const { models } = require('../db');
 
 /**
  * Verifies a user's session using cookies if exists, creates a new one otherwise
@@ -10,7 +10,7 @@ module.exports.createSession = (req, res, next) => {
   // Extract existing cookie from request if exists
   const { cookies: { neobank } } = req;
   if (neobank) {
-    models.db.find({ hash: neobank })
+    models.User.find({ hash: neobank })
       .then((data) => {
         models.api.createUser(data.username, data.password);
       })
