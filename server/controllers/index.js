@@ -4,11 +4,12 @@
 const axios = require('axios');
 
 module.exports = {
-  // verifyUser: (req, res) => {
-  //   req.session.getNodes()
-  //     .then(({ data }) => res.status(200).send(data))
-  //     .catch(({ response }) => res.status(401).send(response.data));
-  // },
+  verifyUser: (req, res) => {
+    const { session } = req;
+    session.getNodes()
+      .then(({ data }) => res.status(200).send(data))
+      .catch(({ response }) => res.status(401).send(response.data));
+  },
   createUser: (req, res) => {
     const { cookies, session, body: { username, password } } = req;
 

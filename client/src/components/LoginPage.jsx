@@ -5,7 +5,6 @@ import { userActions } from '../_actions';
 import Error from './Error';
 
 const actions = {
-  verify: userActions.verify,
   login: userActions.login,
   logout: userActions.logout,
 };
@@ -25,11 +24,6 @@ class LoginPage extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    // const { verify } = this.props;
-    // verify(); // Verify cookies in local storage
   }
 
   handleChange(e) {
@@ -70,7 +64,6 @@ class LoginPage extends React.Component {
 
 LoginPage.propTypes = {
   login: PropTypes.func.isRequired,
-  verify: PropTypes.func.isRequired,
   authentication: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 

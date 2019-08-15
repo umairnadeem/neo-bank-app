@@ -14,6 +14,7 @@ export default function (state = initialState, action) {
     case userConstants.LOGOUT:
       return {
         requiresLogin: true,
+        isLoggedIn: false,
       };
     case userConstants.FAIL:
       return {
