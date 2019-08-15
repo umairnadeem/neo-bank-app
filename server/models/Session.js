@@ -45,7 +45,7 @@ class Session extends Model {
       .then(({ data }) => {
         const { refresh_token } = data;
         this.id = data._id;
-console.log('session oauth')
+
         // OAuth User
         return axios.post(`${url}/oauth/${this.id}`, { refresh_token }, { headers });
       })
@@ -76,7 +76,7 @@ console.log('session oauth')
       bank_id: username,
       bank_pw: password,
     };
-    console.log('session login')
+
     // Login to bank account
     return axios.post(`${url}/users/${id}/nodes`, { type: 'ACH-US', info }, { headers });
   }
@@ -88,8 +88,9 @@ console.log('session oauth')
       id,
       headers,
     } = this;
+    console.log('id: ', id)
 console.log('session authenticate: ', headers)
-console.log('answers: ', access_token)
+console.log('payload: ', { access_token, mfa_answer: answer })
     return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: answer }, { headers });
   }
 

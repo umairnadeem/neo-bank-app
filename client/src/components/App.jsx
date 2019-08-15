@@ -7,18 +7,19 @@ import Authenticate from './Authenticate';
 import Sidebar from './Sidebar';
 import Main from './Main';
 
+const actions = {
+  verify: userActions.verify,
+};
+
 const mapStateToProps = state => ({
   authentication: state.authentication,
 });
 
-const actionCreators = () => ({
-  verify: userActions.verify,
-});
-
-class App extends React.Component {
+class App extends React.PureComponent {
   componentDidMount() {
     const { verify, authentication: { requiresLogin } } = this.props;
     if (requiresLogin) {
+      console.log('verifying')
       verify();
     }
   }
@@ -59,4 +60,4 @@ App.propTypes = {
   verify: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, actionCreators)(App);
+export default connect(mapStateToProps, actions)(App);

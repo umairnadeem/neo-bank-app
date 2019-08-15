@@ -17,6 +17,7 @@ function createSession(req, res) {
  */
 module.exports.verifyCookies = (req, res, next) => {
   // Extract existing cookie from request if exists
+  console.log('middleware hit')
   const { cookies: { neobank } } = req;
   if (neobank) {
     models.User.findOne({ where: { hash: neobank } })
