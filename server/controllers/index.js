@@ -4,7 +4,7 @@
 const axios = require('axios');
 const { Session } = require('../models');
 
-const url = 'https://uat-api.synapsefi.com/v3.1';
+// const url = 'https://uat-api.synapsefi.com/v3.1';
 
 const { clientID, clientSecret } = require('../config');
 
@@ -22,23 +22,11 @@ let newHeaders;
 
 module.exports = {
   createUser: (req, res) => {
+    const { body: { username, password } } = req;
     const session = new Session(clientID, clientSecret);
 
     session.getOAuth()
-      .then(({ data }) => {
-        const { oauth_key } = data;
-        newHeaders = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` }; // Update OAuth token
-
-        // Always use HTTPS to retrieve these from the client!
-        const info = {
-          bank_name: 'fake',
-          bank_id: req.body.username,
-          bank_pw: req.body.password,
-        };
-
-        // Login to bank account
-        return axios.post(`${url}/users/${userId}/nodes`, { type: 'ACH-US', info }, { headers: newHeaders });
-      })
+      .then(() => session.login(username, password))
       .then(
         ({ data }) => {
           // If MFA required

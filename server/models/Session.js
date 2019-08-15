@@ -7,7 +7,6 @@ class Session {
   constructor(clientID, clientSecret) {
     this.id = null;
     this.accessToken = null;
-    this.oAuth = null;
     this.url = 'https://uat-api.synapsefi.com/v3.1';
     this.headers = {
       'Content-Type': 'application/json',
@@ -46,7 +45,31 @@ class Session {
 
         // OAuth User
         return axios.post(`${url}/oauth/${this.id}`, { refresh_token }, { headers });
+      })
+      .then(({ data }) => {
+        const { oauth_key } = data;
+
+        // Update OAuth token
+        this.headers = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` };
       });
+  }
+
+  /**
+   * Logins to the user's bank account using username and password
+   * @param {String} username - Username for bank account
+   * @param {String} password - Password for bank accout
+   * @returns {Promise} - Returns the promise of a login request to the API
+   */
+  login(username, password) {
+    const { headers, url, id } = this;
+    const info = {
+      bank_name: 'fake',
+      bank_id: username,
+      bank_pw: password,
+    };
+
+    // Login to bank account
+    return axios.post(`${url}/users/${id}/nodes`, { type: 'ACH-US', info }, { headers });
   }
 }
 
