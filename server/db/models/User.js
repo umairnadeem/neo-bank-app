@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = require('./index');
+const sequelize = require('../connection');
 
+// TODO: encrypt all sensitive information!
 const User = sequelize.define('user', {
   id: {
     type: Sequelize.INTEGER,
@@ -8,6 +9,8 @@ const User = sequelize.define('user', {
     autoIncrement: true,
     primaryKey: true,
   },
+  userId: Sequelize.INTEGER,
+  oauth: Sequelize.STRING,
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   mfa: Sequelize.STRING,

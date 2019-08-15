@@ -1,9 +1,9 @@
-const db = require('./db');
 const Session = require('./Session');
+const Model = require('./Model');
 const utils = require('./utils');
 
 module.exports = {
   Session,
-  db,
+  Model,
   utils,
 };

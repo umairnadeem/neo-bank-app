@@ -2,11 +2,14 @@
 /* eslint-disable camelcase */
 
 const axios = require('axios');
+const Model = require('./Model');
 
-class Session {
+class Session extends Model {
   constructor(clientID, clientSecret) {
+    super('users');
     this.id = null;
-    this.access_token = null;
+    this.access_token = null; // TODO: remove?
+    this.oauth_key = null;
     this.url = 'https://uat-api.synapsefi.com/v3.1';
     this.headers = {
       'Content-Type': 'application/json',
@@ -50,8 +53,15 @@ class Session {
         const { oauth_key } = data;
 
         // Update OAuth token
-        this.headers = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` };
+        this._updateHeader(oauth_key);
       });
+  }
+
+  _updateHeader(oauth_key) {
+    const { headers } = this.headers;
+    // Update OAuth token
+    this.headers = { ...headers, 'X-SP-USER': `${oauth_key}|static_pin` };
+    this.oauth_key = oauth_key;
   }
 
   /**
@@ -81,6 +91,23 @@ class Session {
     } = this;
 
     return axios.post(`${url}/users/${id}/nodes`, { access_token, mfa_answer: answer }, { headers });
+  }
+
+  getNodes(id = this.id, oauth_key = this.oauth_key) {
+    const {
+      url,
+      headers,
+    } = this;
+
+    if (oauth_key) {
+      this._updateHeader(oauth_key);
+    }
+
+    return axios.get(`${url}/users/${id}/nodes`, { headers });
+  }
+
+  save(cookie) {
+    return super.create.call(this, cookie);
   }
 }
 

@@ -9,6 +9,11 @@ const { clientID, clientSecret } = require('../config');
 const session = new Session(clientID, clientSecret);
 
 module.exports = {
+  test: (req, res) => {
+    session.getNodes()
+      .then(({ data }) => console.log(data))
+      .catch(err => console.error(err));
+  },
   createUser: (req, res) => {
     const { body: { username, password } } = req;
 
