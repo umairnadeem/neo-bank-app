@@ -35,7 +35,7 @@ const login = (username, password) => dispatch => userService.login(username, pa
     if (http_code && +http_code === 202) {
       dispatch({
         type: userConstants.AUTH,
-        payload: data.mfa.message,
+        payload: data.mfa ? data.mfa.message : 'MFA failed',
       });
     } else if (http_code && +http_code === 200) {
       dispatch({

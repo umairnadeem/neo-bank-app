@@ -23,7 +23,7 @@ describe('Login action creator behavior', () => {
     // Invalid login information should result in FAIL action being dispatched
     return store.dispatch(userActions.login('invalid', 'invalid'))
       .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions()).toMatchObject(expectedActions);
       });
   });
 
@@ -40,7 +40,7 @@ describe('Login action creator behavior', () => {
     // Valid login information with MFA should result in successful login
     return store.dispatch(userActions.login('synapse_nomfa', 'test1234'))
       .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions()).toMatchObject(expectedActions);
       });
   });
 
