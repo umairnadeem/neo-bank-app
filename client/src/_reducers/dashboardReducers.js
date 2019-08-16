@@ -1,18 +1,18 @@
-import { userConstants } from '../_constants';
+import { dashboardConstants } from '../_constants';
 
 const initialState = {
-  data: null,
+  trans: null,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case userConstants.LOGIN:
+    case dashboardConstants.TRANS:
       return {
-        data: action.payload,
+        trans: action.payload,
       };
-    case userConstants.LOGOUT:
+    case dashboardConstants.TRANS_FAIL:
       return {
-        data: null,
+        trans: null,
       };
     default:
       return state;
