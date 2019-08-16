@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 import LoginPage from './LoginPage';
 import Authenticate from './Authenticate';
-import Sidebar from './Sidebar';
-import Main from './Main';
+import Dashboard from './Dashboard';
 
 const actions = {
   verify: userActions.verify,
@@ -42,12 +41,7 @@ class App extends React.PureComponent {
           ? <Authenticate />
           : null }
         { isLoggedIn
-          ? (
-            <Fragment>
-              <Sidebar />
-              <Main />
-            </Fragment>
-          )
+          ? <Dashboard />
           : null }
       </div>
     );

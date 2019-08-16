@@ -1,6 +1,6 @@
 # Neo Bank App
 
-> A modern banking app wrapper that displays your banking information in a convenient manner. Proposed features include a graph display of your earnings/spending and the ability to send/recieve money. 
+> A modern banking app wrapper that displays your banking information in a convenient manner. Proposed features include a graph display of your earnings/spending and the ability to send/recieve money. Current features include a secure login page with comprehensive error-handling and a custom cookie tracking solution. 
 
 ## Table of Contents
 
@@ -74,3 +74,5 @@ Todo:
   - Allow money transfer
   - Show money-in/money-out for each account
   - Allow switching account to change graph
+  - Delete MySQL cookie entries after token expires
+  - Clear cookies and set expiration time

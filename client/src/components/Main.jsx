@@ -4,6 +4,9 @@ import Accounts from './Accounts';
 const Main = () => (
   <div className="main">
     <Accounts />
+    <Accounts />
+    <Accounts />
+    <Accounts />
   </div>
 );
 

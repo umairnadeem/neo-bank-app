@@ -5,6 +5,10 @@
   src: local('Avenir Next LT Pro Regular'), url('./fonts/AvenirNextLTPro-Regular.woff') format('woff');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   height: 100%;
   margin: 0;
@@ -19,7 +23,6 @@ body, html {
 }
 
 input {
-  box-sizing: border-box;
   width: 100%;
   height: 36px;
   padding: 10px 8px;
@@ -47,6 +50,8 @@ button:hover {
 }
 
 .container {
+  display: inline-block;
+  margin: 20px;
   border-radius: 6px;
   padding: 20px;
   max-width: 300px;
@@ -70,20 +75,34 @@ ul {
   padding: 0;
 }
 
-.main {
-  border: 1px solid black;
-}
-
-.sidebar {
-  flex-basis: 200px;
-  background: black;
-  color: white;
-  width: 300px;
-  height: 100%;
-}
 
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100%;
+}
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  left: 200px;
+  border: 1px solid black;
+  width: auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  width: 200px;
+  background: black;
+  color: white;
+  height: 100%;
 }
