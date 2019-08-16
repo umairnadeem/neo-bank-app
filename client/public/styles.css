@@ -36,17 +36,21 @@ form {
 }
 
 button {
-  background-color: #4d62ee;
+  background-color: #4b5fea;
   color: white;
   padding: 14px 20px;
   margin: 10px 0;
   width: 100%;
   border: none;
+  border-radius: 40px;
   cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 button:hover {
-  opacity: 0.8;
+  background: linear-gradient(180deg,#4b5fea,#607aff);
 }
 
 .container {
@@ -73,8 +77,8 @@ button:hover {
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
-
 
 .flex {
   display: flex;
@@ -92,7 +96,6 @@ ul {
 .main {
   position: absolute;
   left: 200px;
-  border: 1px solid black;
   width: auto;
   padding: 20px;
   min-height: 100vh;
@@ -102,7 +105,31 @@ ul {
   position: fixed;
   left: 0;
   width: 200px;
-  background: black;
-  color: white;
+  background: #F9F9FB;
+  color: black;
   height: 100%;
+  letter-spacing: 0.8px;
+  text-align: left;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  color: #7a7a7a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sidebar li {
+  padding: 15px 40px;
+}
+
+.sidebar li:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  margin: 15px 0;
+  padding-left: 40px;
 }
