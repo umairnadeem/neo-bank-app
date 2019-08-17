@@ -13,12 +13,10 @@ const actions = {
   getTrans: dashboardActions.getTrans,
 };
 
-class Transactions extends React.Component {
+class Transactions extends React.PureComponent {
   componentDidUpdate() {
     const { getTrans, node } = this.props;
-    console.log(node)
     if (node) {
-      console.log(node)
       getTrans(node);
     }
   }
@@ -34,7 +32,7 @@ class Transactions extends React.Component {
 }
 
 Transactions.propTypes = {
-  trans: PropTypes.objectOf(PropTypes.any),
+  trans: PropTypes.arrayOf(PropTypes.any),
   getTrans: PropTypes.func.isRequired,
   node: PropTypes.string,
 };

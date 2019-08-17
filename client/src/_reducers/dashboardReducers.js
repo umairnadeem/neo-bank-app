@@ -4,7 +4,7 @@ import { dashboardConstants, userConstants } from '../_constants';
 
 const initialState = {
   trans: [],
-  data: [],
+  data: {},
   node: null,
 };
 
@@ -19,16 +19,12 @@ export default function (state = initialState, action) {
       };
     case userConstants.LOGOUT:
       return {
-        data: [],
+        data: {},
       };
-    // case dashboardConstants.TRANS:
-    //   return {
-    //     trans: action.payload,
-    //   };
-    // case dashboardConstants.TRANS_FAIL:
-    //   return {
-    //     trans: [],
-    //   };
+    case dashboardConstants.TRANS:
+      return Object.assign({}, state, { trans: action.payload });
+    case dashboardConstants.TRANS_FAIL:
+      return Object.assign({}, state, { trans: [] });
     default:
       return state;
   }

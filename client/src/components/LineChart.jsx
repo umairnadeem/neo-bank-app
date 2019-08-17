@@ -18,7 +18,7 @@ class LineChart extends React.Component {
 }
 
 LineChart.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
+  data: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 export default LineChart;
