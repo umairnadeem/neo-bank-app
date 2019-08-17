@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LineChart from './LineChart';
-import { dashboardActions } from '../_actions';
+import { dashboardActions } from '../../_actions';
 
 const mapStateToProps = state => ({
   trans: state.dashboard.trans,

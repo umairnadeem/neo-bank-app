@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { userActions } from '../_actions';
+import { userActions } from '../../_actions';
 import Error from './Error';
 
 const actions = {

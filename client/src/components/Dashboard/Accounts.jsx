@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AccountEntry from './AccountEntry';
-import { dashboardActions } from '../_actions';
+import { dashboardActions } from '../../_actions';
 
 const mapStateToProps = state => ({
   data: state.dashboard.data,

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
-import LoginPage from './LoginPage';
-import Authenticate from './Authenticate';
+import LoginPage from './Login/LoginPage';
+import Authenticate from './Login/Authenticate';
 import Dashboard from './Dashboard';
 
 const actions = {
