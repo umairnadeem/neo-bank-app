@@ -14,7 +14,7 @@ const actions = {
 };
 
 class Transactions extends React.PureComponent {
-  componentDidUpdate() {
+  componentDidMount() {
     const { getTrans, node } = this.props;
     if (node) {
       getTrans(node);
@@ -25,20 +25,20 @@ class Transactions extends React.PureComponent {
     const { trans } = this.props;
     return (
       <div className="container">
-        <LineChart data={trans} />
+        {/* <LineChart data={trans} /> */}
       </div>
     );
   }
 }
 
 Transactions.propTypes = {
-  trans: PropTypes.arrayOf(PropTypes.any),
+  trans: PropTypes.objectOf(PropTypes.any),
   getTrans: PropTypes.func.isRequired,
   node: PropTypes.string,
 };
 
 Transactions.defaultProps = {
-  trans: [],
+  trans: {},
   node: '',
 };
 

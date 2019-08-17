@@ -46,9 +46,12 @@ module.exports = {
   getTrans: (req, res) => {
     const { session } = req;
     const { url, headers, id } = session;
-    return axios.get(`${url}/users/${id}/node/${req.params.node}/trans`, { headers })
-      .then(({ data }) => console.log(data))
+    return axios.get(`${url}/nodes/crypto-market-watch?limit=50&amp;currency=BTC`)
+      .then(({ data }) => res.status(200).send(data))
       .catch(({ response }) => res.status(401).send(response.data));
+    // return axios.get(`${url}/users/${id}/node/${req.params.node}/trans`, { headers })
+    //   .then(({ data }) => res.send(data))
+    //   .catch(({ response }) => res.status(401).send(response.data));
   },
 };
 
