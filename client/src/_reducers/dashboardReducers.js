@@ -1,29 +1,37 @@
+/* eslint-disable no-underscore-dangle */
+
 import { dashboardConstants, userConstants } from '../_constants';
 
 const initialState = {
-  trans: null,
-  data: null,
+  trans: [],
+  data: [],
+  node: null,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case dashboardConstants.NODE:
+      return Object.assign({}, state, { node: action.payload });
     case userConstants.LOGIN:
       return {
         data: action.payload,
+        node: action.payload.nodes[0] ? action.payload.nodes[0]._id : '',
       };
     case userConstants.LOGOUT:
       return {
-        data: null,
+        data: [],
       };
-    case dashboardConstants.TRANS:
-      return {
-        trans: action.payload,
-      };
-    case dashboardConstants.TRANS_FAIL:
-      return {
-        trans: null,
-      };
+    // case dashboardConstants.TRANS:
+    //   return {
+    //     trans: action.payload,
+    //   };
+    // case dashboardConstants.TRANS_FAIL:
+    //   return {
+    //     trans: [],
+    //   };
     default:
       return state;
   }
 }
+
+/* eslint-enable */

@@ -8,10 +8,8 @@ const getTrans = node => dispatch => dashboardService.getTrans(node)
     const { http_code } = data;
 
     if (http_code && +http_code === 202) {
-      const { mfa: { message } } = data;
       dispatch({
         type: dashboardConstants.TRANS_FAIL,
-        error: message,
       });
     } else if (http_code && +http_code === 200) {
       dispatch({
@@ -28,8 +26,14 @@ const getTrans = node => dispatch => dashboardService.getTrans(node)
     });
   });
 
+const changeNode = node => dispatch => dispatch({
+  type: dashboardConstants.NODE,
+  payload: node,
+});
+
 export const dashboardActions = {
   getTrans,
+  changeNode,
 };
 
 /* eslint-enable */

@@ -43,11 +43,11 @@ module.exports = {
         res.status(401).send(response.data);
       });
   },
-  getTransactions: (req, res) => {
+  getTrans: (req, res) => {
     const { session } = req;
     const { url, headers, id } = session;
-    return axios.get(`${url}/users/${id}/node/${req.params.nodeId}/trans`, { headers })
-      .then(({ data }) => res.send(data))
+    return axios.get(`${url}/users/${id}/node/${req.params.node}/trans`, { headers })
+      .then(({ data }) => console.log(data))
       .catch(({ response }) => res.status(401).send(response.data));
   },
 };
