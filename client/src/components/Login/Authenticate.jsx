@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userActions } from '../../_actions';
+import { useForm } from '../_helpers';
 import Error from './Error';
 
 const actions = {
@@ -12,47 +13,25 @@ const mapStateToProps = state => ({
   authentication: state.authentication,
 });
 
-class Authenticate extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      answer: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const { authenticate } = this.props;
-    const { answer } = this.state;
-
+const Authenticate = ({ authenticate, authentication }) => {
+  const [values, handleChange, handleSubmit] = useForm({ answer: '' });
+  const submit = ({ answer }) => {
     authenticate(answer);
-  }
+  };
 
-  render() {
-    const { authentication } = this.props;
-    const { answer } = this.state;
-    return (
-      <div>
-        <form name="mfa" className="container" onSubmit={this.handleSubmit}>
-          <h1>{authentication.message || 'MFA Required: '}</h1>
-          <input name="answer" value={answer} type="text" onChange={this.handleChange} placeholder="Your answer" />
-          <button type="submit">Submit</button>
-        </form>
-        { authentication.error
-          ? <Error />
-          : null }
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <form name="mfa" className="container" onSubmit={e => handleSubmit(e, submit)}>
+        <h1>{authentication.message || 'MFA Required: '}</h1>
+        <input name="answer" value={values.answer} type="text" onChange={handleChange} placeholder="Your answer" />
+        <button type="submit">Submit</button>
+      </form>
+      { authentication.error
+        ? <Error />
+        : null }
+    </div>
+  );
+};
 
 Authenticate.propTypes = {
   authenticate: PropTypes.func.isRequired,
