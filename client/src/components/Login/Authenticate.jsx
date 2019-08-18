@@ -26,9 +26,7 @@ const Authenticate = ({ authenticate, authentication }) => {
         <input name="answer" value={values.answer} type="text" onChange={handleChange} placeholder="Your answer" />
         <button type="submit">Submit</button>
       </form>
-      { authentication.error
-        ? <Error />
-        : null }
+      {authentication.error && <Error />}
     </div>
   );
 };
