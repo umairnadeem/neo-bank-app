@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userActions } from '../../_actions';
+import Load from './Load';
 
 const actions = {
   verify: userActions.verify,
@@ -25,9 +26,9 @@ class VerifyContainer extends React.PureComponent {
   render() {
     const { children } = this.props;
     return (
-      <React.Fragment>
+      <Load>
         {children}
-      </React.Fragment>
+      </Load>
     );
   }
 }
@@ -41,4 +42,4 @@ VerifyContainer.propTypes = {
   ]).isRequired,
 };
 
-export default connect(mapStateToProps, actions)(VerifyContainer);
+export const Verify = connect(mapStateToProps, actions)(VerifyContainer);

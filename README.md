@@ -76,3 +76,6 @@ Todo:
   - Allow switching account to change graph
   - Delete MySQL cookie entries after token expires
   - Clear cookies and set expiration time
+
+Bugs:
+  - isLoggedIn sets to true upon refreshing on MFA authentication screen

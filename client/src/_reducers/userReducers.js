@@ -7,6 +7,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case userConstants.LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
     case userConstants.LOGIN:
       return {
         isLoggedIn: true,

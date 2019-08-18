@@ -16,12 +16,14 @@ const actions = {
 
 const Accounts = ({ changeNode, data: { nodes } }) => {
   useEffect(() => {
-    changeNode(nodes[0]._id);
+    if (nodes[0]) {
+      changeNode(nodes[0]._id);
+    }
   });
 
   return (
     <div className="container">
-      <h3>{ `Hi, ${nodes[0].client.name}!` }</h3>
+      <h3>{ `Hi, ${nodes[0] && nodes[0].client.name}!` }</h3>
       <p>Here are your accounts:</p>
       <ul>
         { nodes.map(({ _id, info }) => <AccountEntry key={_id} info={info} />)}

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import LoginPage from './Login/LoginPage';
+import LoginPage from './Login';
 import Authenticate from './Login/Authenticate';
 import Dashboard from './Dashboard';
-import Verify from './_containers/Verify';
+import { Verify } from './_containers';
 
 const mapStateToProps = state => ({
   authentication: state.authentication,

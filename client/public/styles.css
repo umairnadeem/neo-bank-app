@@ -133,3 +133,13 @@ ul {
   margin: 15px 0;
   padding-left: 40px;
 }
+
+.load {
+  position: fixed;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  background: no-repeat center/20% url("./img/loading.gif") white;
+}
