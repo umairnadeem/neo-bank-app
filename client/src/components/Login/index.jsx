@@ -31,9 +31,7 @@ const LoginPage = ({ login, authentication }) => {
         <input name="password" type="text" value={values.password} onChange={handleChange} placeholder="Password" />
         <button type="submit">Submit</button>
       </form>
-      { authentication.error
-        ? <Error />
-        : null }
+      {authentication.error && <Error />}
     </div>
   );
 };
