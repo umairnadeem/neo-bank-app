@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LoginPage from './Login/LoginPage';
 import Authenticate from './Login/Authenticate';
 import Dashboard from './Dashboard';
-import Verify from './Containers/Verify';
+import Verify from './_containers/Verify';
 
 const mapStateToProps = state => ({
   authentication: state.authentication,
@@ -20,15 +20,9 @@ const App = ({
 }) => (
   <Verify>
     <div className="flex">
-      {requiresLogin
-        ? <LoginPage />
-        : null }
-      { requiresAuth
-        ? <Authenticate />
-        : null }
-      { isLoggedIn
-        ? <Dashboard />
-        : null }
+      {requiresLogin && <LoginPage />}
+      {requiresAuth && <Authenticate />}
+      {isLoggedIn && <Dashboard />}
     </div>
   </Verify>
 );
