@@ -46,7 +46,7 @@ const authenticate = (answer = '') => (dispatch) => {
     .catch(err => handleCatch(err, dispatch));
 };
 
-const login = (username, password) => (dispatch) => {
+const login = (username = '', password = '') => (dispatch) => {
   dispatch({ type: userConstants.LOADING });
 
   userService.login(username, password)
