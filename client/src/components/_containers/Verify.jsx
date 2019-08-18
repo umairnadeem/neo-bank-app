@@ -11,6 +11,9 @@ const mapStateToProps = state => ({
   authentication: state.authentication,
 });
 
+/**
+ * Verifies the cookies of the user before rendering the child component
+ */
 class VerifyContainer extends React.PureComponent {
   componentDidMount() {
     const { verify, authentication: { requiresLogin } } = this.props;

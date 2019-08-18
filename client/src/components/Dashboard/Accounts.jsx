@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AccountEntry from './AccountEntry';
@@ -14,27 +14,21 @@ const actions = {
   changeNode: dashboardActions.changeNode,
 };
 
-class Accounts extends React.PureComponent {
-  componentDidMount() {
-    const { changeNode, data: { nodes } } = this.props;
-
+const Accounts = ({ changeNode, data: { nodes } }) => {
+  useEffect(() => {
     changeNode(nodes[0]._id);
-  }
+  });
 
-  render() {
-    const { data: { nodes } } = this.props;
-
-    return (
-      <div className="container">
-        <h3>{ `Hi, ${nodes[0].client.name}!` }</h3>
-        <p>Here are your accounts:</p>
-        <ul>
-          { nodes.map(({ _id, info }) => <AccountEntry key={_id} info={info} />)}
-        </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <h3>{ `Hi, ${nodes[0].client.name}!` }</h3>
+      <p>Here are your accounts:</p>
+      <ul>
+        { nodes.map(({ _id, info }) => <AccountEntry key={_id} info={info} />)}
+      </ul>
+    </div>
+  );
+};
 
 Accounts.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,

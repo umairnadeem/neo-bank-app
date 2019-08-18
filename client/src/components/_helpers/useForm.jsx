@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+/**
+ * A custom hook which holds the state and handleChange/handleSubmit functions for form components
+ * @param {Object} initialValues - Initial state for form fields
+ */
 export const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
 
