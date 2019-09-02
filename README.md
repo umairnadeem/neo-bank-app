@@ -60,7 +60,6 @@ npm start
 }
   ```
 
-
 ## Testing
 
 From within the root directory:
