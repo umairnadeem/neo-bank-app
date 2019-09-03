@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import LineChart from './LineChart';
 import { dashboardActions } from '../../_actions';
+import Graph from './Graph';
 
 const mapStateToProps = state => ({
   trans: state.dashboard.trans,
@@ -25,7 +25,7 @@ class Transactions extends React.PureComponent {
     const { trans } = this.props;
     return (
       <div className="container">
-        {/* <LineChart data={trans} /> */}
+        {trans.data ? <Graph trans={trans} /> : 'Loading...'}
       </div>
     );
   }

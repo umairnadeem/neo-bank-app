@@ -1,30 +1,37 @@
 /* eslint-disable no-underscore-dangle */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LineGraph from 'react-line-graph';
-import AccountEntry from './AccountEntry';
 import { dashboardActions } from '../../_actions';
-
-
-const mapStateToProps = state => ({
-  data: state.dashboard.data,
-});
 
 const actions = {
   changeNode: dashboardActions.changeNode,
 };
 
-const Graph = () => {
-  const data = (new Array(100)).fill().map(() => Math.random());
+const Graph = ({ trans }) => {
+  console.log(trans);
+  let {
+    data: {
+      BTC: { data },
+    },
+  } = trans;
+  data = data.map((point) => {
+    const y = point.date.replace(/\D/g, '');
+    const x = point.price_close;
+    return [x, y];
+  });
+
   const props = {
     data,
-    strokeWidth: 3,
+    strokeWidth: 1,
     hover: true,
+    smoothing: 0.5,
+    compression: 0.5,
   };
   return (
-    <div className="container">
+    <div>
       <p>Here is your data:</p>
       <LineGraph {...props} />
     </div>
@@ -32,10 +39,17 @@ const Graph = () => {
 };
 
 Graph.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
+  trans: PropTypes.objectOf(PropTypes.any),
   changeNode: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, actions)(Graph);
+Graph.defaultProps = {
+  trans: {},
+};
+
+export default connect(
+  null,
+  actions,
+)(Graph);
 
 /* eslint-enable */
