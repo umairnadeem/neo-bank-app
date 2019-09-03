@@ -11,7 +11,6 @@ const actions = {
 };
 
 const Graph = ({ trans }) => {
-  console.log(trans);
   let {
     data: {
       BTC: { data },
@@ -25,13 +24,14 @@ const Graph = ({ trans }) => {
 
   const props = {
     data,
-    strokeWidth: 1,
+    strokeWidth: 3,
     hover: true,
     smoothing: 0.5,
-    compression: 0.5,
+    fillBelow: 'url(#grad1)',
+    accent: '#5c6ded',
   };
   return (
-    <div>
+    <div id="graph">
       <p>Here is your data:</p>
       <LineGraph {...props} />
     </div>

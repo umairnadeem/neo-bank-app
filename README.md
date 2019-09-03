@@ -1,7 +1,7 @@
 # Neo Bank App
 
 > A modern banking app wrapper that displays your banking information in a convenient manner. Proposed features include a graph display of your earnings/spending and the ability to send/recieve money. Current features include a secure login page with comprehensive error-handling and a custom cookie tracking solution. 
-
+![Example demo](demo/demo.gif)  
 ## Table of Contents
 
 1. [Requirements](#requirements)
@@ -17,8 +17,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 8.10.0
 
-## Usage
-Insert API client ID and secret in server/config/indexExample.js, then rename it to index.js.
+## Usage Insert API client ID and secret in server/config/indexExample.js, then rename it to index.js.
  
 From within the root directory:
 ```sh
