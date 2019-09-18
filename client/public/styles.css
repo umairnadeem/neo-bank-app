@@ -55,6 +55,7 @@ button:hover {
 
 .container {
   display: inline-block;
+  vertical-align: top;
   margin: 20px;
   border-radius: 6px;
   padding: 20px;
